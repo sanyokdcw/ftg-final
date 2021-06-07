@@ -62,7 +62,7 @@ class MainController extends Controller
 
 
     public function guarange() {
-        return view('guarange', ['guarange' => guarantee::all()]);
+        return view('guarange');
     }
 
     public function projects(){
