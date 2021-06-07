@@ -20,7 +20,6 @@
   </form>
   @if($projects->count() == 0)
     <div class="project__title subtitle" style="font-size: 25px">По запросу {{ $q }} ничего не найдено</div>
-
   @elseif($q != null)
   <div class="project__title subtitle" style="font-size: 25px">Проекты по запросу: {{ $q }}</div>
 

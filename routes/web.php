@@ -63,8 +63,8 @@ Route::post('/add-order', [ShopController::class, 'add_order'])->middleware('aut
 
 Route::get('/search', function() {
     $projects = Project::all();
-
-    return view('search', compact('projects'));
+    $q = null;
+    return view('search', compact('projects', 'q'));
 });
 
 Route::post('/search', function(Request $request) {
