@@ -94,7 +94,7 @@ window.addEventListener("load", () => {
 
     inputPhone.forEach(phone => {
         IMask(phone, {
-            mask: '+{38} (000) 000-00-00',
+            mask: '+{7} (000) 000-00-00',
             lazy: false
         });
     });
@@ -171,7 +171,6 @@ const btnContact = document.querySelector('.btn-contact'),
     main = document.querySelector('body'),
     formClose = document.querySelectorAll('.form__close'),
     formWrapper = document.querySelectorAll('.form__wrapper');
-
 
 if (btnContact && formClose) btnContact.addEventListener('click', () => openModelRight());
 if (btnFill && formClose) btnFill.addEventListener('click', () => openModelRight());

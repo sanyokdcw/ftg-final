@@ -11,6 +11,14 @@
 </section>
 
 <section class="project">
+  <form action="/search" method="POST">
+    @csrf
+    <input type="text" class="search" placeholder="Введите ваш запрос...">
+    <button type="submit">
+      <img src="../images/search-icon.png" alt="">
+    </button>
+  </form>
+
   <div class="project__title subtitle">НАШИ ПРОЕКТЫ</div>
   <div class="project__wrapper">
     @foreach ($projects as $project)

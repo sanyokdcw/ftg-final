@@ -24,7 +24,7 @@
         {{ $delivery->title }}
       </div>
       <div class="delivery__wrapper-text">
-        {!! $delivery->text !!}
+        {!! $delivery->text !!} 
       </div>
     </div>
     @endforeach

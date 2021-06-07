@@ -15,29 +15,30 @@
     <div class="product__wrapper">
         <div class="product__wrapper-left">
             <div class="product__wrapper-left">
-                <div class="product__wrapper-left_item product__wrapper-left_item_active">
-                    <div class="product__wrapper-left_number">1.</div>
+                <div class="product__wrapper-left_item product__wrapper-left_item_active" id="Tab0link" onclick="changeTab('Tab0')">
+                    <div class="product__wrapper-left_number" >1.</div>
                     <div class="product__wrapper-left_text">Источник воды</div>
                 </div>
-                <div class="product__wrapper-left_item">
-                    <div class="product__wrapper-left_number">2.</div>
+                <div class="product__wrapper-left_item" id="Tab1link" onclick="changeTab('Tab1')">
+                    <div class="product__wrapper-left_number" >2.</div>
                     <div class="product__wrapper-left_text">Анализ входной воды</div>
                 </div>
-                <div class="product__wrapper-left_item">
+                <div class="product__wrapper-left_item" id="Tab2link" onclick="changeTab('Tab2')">
                     <div class="product__wrapper-left_number">3.</div>
                     <div class="product__wrapper-left_text">Требования к качеству очищенной воды</div>
                 </div>
-                <div class="product__wrapper-left_item">
+                <div class="product__wrapper-left_item" id="Tab3link" onclick="changeTab('Tab3')">
                     <div class="product__wrapper-left_number">4.</div>
                     <div class="product__wrapper-left_text">Анализ очищенной води</div>
                 </div>
-                <div class="product__wrapper-left_item">
+                <div class="product__wrapper-left_item" id="Tab4link" onclick="changeTab('Tab4')">
                     <div class="product__wrapper-left_number">5.</div>
                     <div class="product__wrapper-left_text">Продуктивность</div>
                 </div>
             </div>
         </div>
         <div class="product__wrapper-right">
+        <span class="tab-content" id="Tab0">
             <div class="product__wrapper-right_title title">Выберите источник воды</div>
             <div class="product__wrapper-right_checkbox">
                 <div class="product__wrapper-right_radio">
@@ -56,9 +57,13 @@
                     <input type="radio" name="radio-1" id="radio-4">
                     <label for="radio-4">Речка, открытый водоем</label>
                 </div>
-                <button class="product__wrapper-right_btn">Продолжить</button>
+                <button class="product__wrapper-right_btn" onclick="changeTab('Tab1')">Продолжить</button>
             </div>
-            <div class="product__wrapper-right_result">
+        </span>
+        
+        <span class="tab-content" id="Tab1">
+        <div class="product__wrapper-right_result">
+
                 <div class="product__wrapper-right_title title">
                     Внесите РЕЗУЛЬТАТЫ АНАЛИЗА ВОДЫ, если они отличаются от стандартных значений:
                 </div>
@@ -307,7 +312,10 @@
                     </div>
                 </div>
             </div>
-            <button class="product__wrapper-right_btn">Продолжить</button>
+            <button class="product__wrapper-right_btn" onclick="changeTab('Tab2')">Продолжить</button>
+        </span>
+        <span class="tab-content" id="Tab2">
+
             <div class="product__wrapper-right_requirement">
                 <div class="product__wrapper-right_title title">ВАШИ ТРЕБОВАНИЯ К КАЧЕСТВУ очищенной
                     воды:</div>
@@ -337,8 +345,11 @@
                         <label for="radio-6">Водопроводная вода (ДСанПиН 2.2.4-171-10)</label>
                     </div>
                 </div>
-                <button class="product__wrapper-right_btn">Продолжить</button>
+                <button class="product__wrapper-right_btn" onclick="changeTab('Tab3')">Продолжить</button>
             </div>
+        </span>
+        <span class="tab-content" id="Tab3">
+            <div class="product__wrapper-right_performance">
             <div class="product__wrapper-right_table">
                 <div class="product__wrapper-right_row">
                     <div class="product__wrapper-right_column">
@@ -583,8 +594,12 @@
                     </div>
                 </div>
             </div>
-            <button class="product__wrapper-right_btn">Продолжить</button>
-            <div class="product__wrapper-right_performance">
+            <button class="product__wrapper-right_btn" onclick="changeTab('Tab4')">Продолжить</button>
+            </div>
+        </span>
+        <span class="tab-content" id="Tab4">
+
+            <div class="product__wrapper-right_performance" style="margin-top: 0">
                 <div class="product__wrapper-right_title title">УКАЖИТЕ ПРОИЗВОДИТЕЛЬНОСТЬ:</div>
                 <div class="product__wrapper-right_block">
                     <div class="product__wrapper-right_column">
@@ -598,10 +613,13 @@
                 </div>
                 <button class="product__wrapper-right_btn">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</button>
             </div>
-        </div>
+    </span>
+        
     </div>
 </section>
 
+<script src="/js/product.js">
 
+</script>
 @include('layouts.footer')
 </html>

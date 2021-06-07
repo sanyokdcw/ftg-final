@@ -8,8 +8,7 @@
 <section class="url">
   <div class="url__text">Главная</div>
   <div class="url__text">Каталог</div>
-  <div class="url__text">Дисковые фильтры</div>
-  <div class="url__text">Полуавтаматические дисковые фильтры</div>
+  <div class="url__text">{{ $subcategory->name }}</div>
 </section>
 
 <section class="card">
@@ -28,7 +27,7 @@
         <div class="card__wrapper-text">
           {{ $product->name }}
         </div>
-        <div class="card__wrapper-price"><span>{{ $product->price_kz }}</span> тг</div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
         <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
       </div>
       @endforeach

@@ -149,32 +149,17 @@
     <div class="office__order">
       <div class="popular__title">На данные категории для Вас действуют такие скидки:</div>
       <div class="popular__wrapper">
-        <div class="card__wrapper-item">
-          <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
-          <div class="card__wrapper-text">
-            Система фільтрации PDF 216A-S (130 micron)
+        @foreach ($popular as $p)  
+          <div class="card__wrapper-item">
+            <div class="card__wrapper-img" style="background-image: url(/storage/{{ $p->image }});"></div>
+            <div class="card__wrapper-text">
+              {{ $p->name }}
+            </div>
+            <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> тг</div>
+            <a href="/product/{{ $p->id }}" class="card__wrapper-btn">Подробнее</a>
           </div>
-          <div class="card__wrapper-price"><span>120 500</span> руб</div>
-          <button class="card__wrapper-btn">Подробнее</button>
-        </div>
-        <div class="card__wrapper-item">
-          <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
-          <div class="card__wrapper-text">
-            Система фільтрации PDF 216A-S (130 micron)
-          </div>
-          <div class="card__wrapper-price"><span>120 500</span> руб</div>
-          <button class="card__wrapper-btn">Подробнее</button>
-        </div>
-        <div class="card__wrapper-item">
-          <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
-          <div class="card__wrapper-text">
-            Система фільтрации PDF 216A-S (130 micron)
-          </div>
-          <div class="card__wrapper-price"><span>120 500</span> руб</div>
-          <button class="card__wrapper-btn">Подробнее</button>
-        </div>
+        @endforeach
       </div>
-
     </div>
   </div>
 </section>

@@ -17,66 +17,55 @@
   <div class="company__subtitle title">ТОО FTG COMPANY</div>
   <div class="company__block">
     <div class="company__block-item">
-      <div class="company__block-title title">По своей сути рыбатекст является </div>
-      <div class="company__block-subtitle">По своей сути рыбатекст является </div>
+      <div class="company__block-title title">{{ $c->col1 }}</div>
+      <div class="company__block-subtitle">{{ $c->col1_2 }} </div>
       <div class="company__block-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст
+        {{ $c->col1_3 }}
       </div>
     </div>
     <div class="company__block-item">
-      <div class="company__block-title title">По своей сути рыбатекст является </div>
-      <div class="company__block-subtitle">По своей сути рыбатекст является </div>
+      <div class="company__block-title title">{{ $c->col2 }}</div>
+      <div class="company__block-subtitle">{{ $c->col2_2 }}</div>
       <div class="company__block-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст
+        {{ $c->col2_3 }}
       </div>
     </div>
     <div class="company__block-item">
-      <div class="company__block-title title">По своей сути рыбатекст является </div>
-      <div class="company__block-subtitle">По своей сути рыбатекст является </div>
+      <div class="company__block-title title">{{ $c->col3 }}</div>
+      <div class="company__block-subtitle">{{ $c->col3_2 }}</div>
       <div class="company__block-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст
+        {{ $c->col3_3 }}
       </div>
     </div>
   </div>
   <div class="company__block company__block-too">
     <div class="company__block-item">
       <div class="company__block-title title">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum
+        {{ $c->col1_4 }}
       </div>
     </div>
     <div class="company__block-item">
       <div class="company__block-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от
-        lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и
-        придаст неповторимый колорит советских времен.
+        {{ $c->col2_4 }}
       </div>
     </div>
     <div class="company__block-item">
       <div class="company__block-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от
-        lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и
-        придаст неповторимый колорит советских времен.
+        {{ $c->col3_4 }}
       </div>
     </div>
   </div>
-  <div class="company__subtitle subtitle">В отличии от lorem ipsum, текст рыба</div>
+  <div class="company__subtitle subtitle">{{ $c->col5 }}</div>
   <div class="company__text">
-    По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у
-    некторых людей недоумение при попытках прочитать рыбу текст
+    {{ $c->col5_2 }}
   </div>
   <div class="company__wrapper">
     <div class="company__wrapper-item">
       <div class="company__wrapper-title subtitle">
-        В отличии от lorem ipsum, текст рыба на русском языке наполнит
+        {{ $c->col4 }}
       </div>
       <div class="company__wrapper-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст
+        {{ $c->col4_2 }}
       </div>
     </div>
     <div class="company__wrapper-item">
@@ -84,11 +73,10 @@
     </div>
     <div class="company__wrapper-item">
       <div class="company__wrapper-title">
-        В отличии от lorem ipsum, текст рыба на русском языке наполнит
+        {{ $c->col6 }}
       </div>
       <div class="company__wrapper-text">
-        По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который
-        вызывает у некторых людей недоумение при попытках прочитать рыбу текст
+        {{ $c->col6_2 }}
       </div>
     </div>
   </div>

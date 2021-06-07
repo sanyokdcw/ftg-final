@@ -24,15 +24,15 @@
           {!! $blog->description !!}
         </div>
         <div class="blog__button">
-          <a href="#" class="blog__button-link">Читать далее</a>
-          <div class="blog__button-time">01.01.2020</div>
+          <a href="/blog/{{ $blog->id }}" class="blog__button-link">Читать далее</a>
+          <div class="blog__button-time">{{ $blog->created_at->format('d-m-Y') }}</div>
         </div>
       </div>
     </div>
     @endforeach
   </div>
 
-  <button class="blog__btn">Показать ещё</button>
+  {{-- <button class="blog__btn">Показать ещё</button> --}}
 </section>
 
 @include('layouts.footer')

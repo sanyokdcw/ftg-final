@@ -7,8 +7,7 @@
 <section class="url">
   <div class="url__text">Главная</div>
   <div class="url__text">Каталог</div>
-  <div class="url__text">Дисковые фильтры</div>
-  <div class="url__text">Система фильтрации PDF 316A-S (5 MICRON)</div>
+  <div class="url__text">{{ $product->name }}</div>
 </section>
 
 <section class="card-detail">
@@ -30,14 +29,14 @@
           <span>{{ $product->existence }}</span>
         </div>
       </div>
-      <div class="card-detail__wrapper-right_price">{{ $product->price_kz }} тенге</div>
+      <div class="card-detail__wrapper-right_price">{{  number_format($product->price_kz) }} тенге</div>
       <div class="card-detail__wrapper-right_block">
         <div class="card-detail__wrapper-right_count">
           <button class="card-detail__wrapper-right_minus" onclick="countDecrement()">-</button>
           <div class="card-detail__wrapper-right_number" id="counter">1</div>
           <button class="card-detail__wrapper-right_plus" onclick="countIncrement()">+</button>
         </div>
-        <div class="card-detail__wrapper-right_subprice title">{{ $product->price_kz }} тенге</div>
+        <div class="card-detail__wrapper-right_subprice title">{{ number_format($product->price_kz) }} тг</div>
         <form action="/cart-add" method="POST">
           @csrf
           <input type="hidden" name="quantity" id="quantity" value="1">
@@ -94,10 +93,10 @@
     <div class="card__wrapper-item">
       <div class="card__wrapper-img" style="background-image: url(/storage/{{ $product->image }});"></div>
       <div class="card__wrapper-text">
-        Система фільтрации PDF 216A-S (130 micron)
+        {{ $product->name }}
       </div>
-      <div class="card__wrapper-price"><span>120 500</span> руб</div>
-      <button class="card__wrapper-btn">Подробнее</button>
+      <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+      <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
     </div>
     @endforeach
   </div>

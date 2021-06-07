@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 
+use App\Models\Project;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +24,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/guarange', function () {
-    return view('guarange');
-});
+Route::get('/guarange', [MainController::class, 'guarange']);
 
 Route::get('/office', [ShopController::class, 'office'])->middleware('auth');
 
@@ -38,8 +37,10 @@ Route::get('/product', function () {
 });
 
 Route::get('/projects', [MainController::class, 'projects']);
+Route::get('/project/{id}', [MainController::class, 'pageproject']);
 
 Route::get('/blog',  [MainController::class, 'blog']);
+Route::get('/blog/{id}',  [MainController::class, 'blog_show']);
 
 Route::get('/', [MainController::class, 'index']);
 
@@ -57,7 +58,13 @@ Route::get('/product/{id}', [ShopController::class, 'card_detail']);
 
 Route::post('/cart-add', [ShopController::class, 'cart_add'])->middleware('auth');
 
-Route::post('/add-order', [ShopController::class, 'add_order']);
+Route::post('/add-order', [ShopController::class, 'add_order'])->middleware('auth');
+
+Route::get('/search', function() {
+    $projects = Project::all();
+
+    return view('search', compact('projects'));
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

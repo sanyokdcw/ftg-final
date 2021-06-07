@@ -43,7 +43,7 @@
 <section class="client">
   <div class="client__top">
     <div class="client__title title">НАШИ КЛИЕНТЫ</div>
-    <a href="#" class="client__full">Все клиенты</a>
+    {{-- <a href="#" class="client__full">Все клиенты</a> --}}
   </div>
   <div class="client__wrapper">
     @foreach ($customers as $customer)
@@ -60,21 +60,21 @@
     <a href="/blog" class="client__full">Все новости</a>
   </div>
   <div class="news__wrapper">
-    @foreach ($projects as $project)
+    @foreach ($blogs as $blog)
     <div class="news__wrapper-item">
-      <div class="news__wrapper-item_top">
-        <img src="/images/news/item-{{ $loop->index + 1 }}.jpg" alt="">
+      <div class="news__wrapper-item_top" style="width:100%">
+        <img src="/storage/{{ $blog->image }}" alt="" style="width:100%">
       </div>
       <div class="news__wrapper-item_bottom">
         <div class="news__wrapper-item_title">
-          {{ $project->title }}
+          {{ $blog->title }}
         </div>
         <div class="news__wrapper-item_text">
-          {{ $project->description }}
+          {{ $blog->description }}
         </div>
         <div class="news__wrapper-item_button">
-          <div class="news__wrapper-item_next">Читать далее</div>
-          <div class="news__wrapper-item_date">01.03.2021</div>
+          <a href="/blog/{{ $blog->id }}" class="news__wrapper-item_next">Читать далее</a>
+          <div class="news__wrapper-item_date">{{ $blog->created_at->format('d-m-Y') }}</div>
         </div>
       </div>
     </div>

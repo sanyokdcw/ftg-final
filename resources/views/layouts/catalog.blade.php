@@ -28,11 +28,11 @@
             </div>
 
             <div class="sitebar__wrapper-item">
-              <a href="tel:88008001234">
+              <a href="tel:{{ setting('contacts.telephone') }}">
                 <img src="../images/phone-1.png" alt="">
                 <div class="sitebar__wrapper-item_right">
-                <a href="tel: 8 800 800-12-34">
-                  8 800 800-12-34
+                <a href="tel:{{setting('contacts.telephone')}}">
+                  {{ setting('contacts.telephone') }}
                   </a>
                 </div>
               </a>
@@ -42,13 +42,16 @@
               <a href="tel:88008001234">
                 <img src="../images/time-icon.png" alt="">
                 <div class="sitebar__wrapper-item_right">
-                  <div>Пн-Пт 09:00-18:00</div>
-                  <div>Cб 09:00-14:00</div>
+                  <div>
+                    {{ setting('contacts.schedule') }}
+                  </div>
+                  <div>
+                    {{ setting('contacts.schedule1') }}
+                  </div>
                 </div>
               </a>
             </div>
           </div>
-
           <div class="sitebar__wrapper-right">
             <div class="sitebar__wrapper-item">
               <div class="sitebar__wrapper-item_left">
@@ -70,7 +73,7 @@
 
           </div>
         </div>
-        <button class="sitebar__btn">Подобрать Продукцию</button>
+        <a href="/product" class="sitebar__btn">Подобрать Продукцию</a>
         <div class="sitebar__drowdown-title">
           <img src="../images/product-icon.png" alt=""> <span>Каталог продукции</span>
         </div>
@@ -96,17 +99,14 @@
 
           </ul>
 
-          <a href="#" class="sitebar__link">Напишите нам</a>
+          <a href="#" class="sitebar__link btn-contact">Напишите нам</a>
           <div class="sitebar__social">
-            <a href="#" class="sitebar__social-link">
-              <img src="../images/facebook-icon.png" alt="">
-            </a>
-            <a href="#" class="sitebar__social-link">
-              <img src="../images/vk-icon.png" alt="">
-            </a>
-            <a href="#" class="sitebar__social-link">
-              <img src="../images/twitter-icon.png" alt="">
-            </a>
+            @foreach ($socials as $social)
+              <a href="{{ $social->link }}" class="sitebar__social-link">
+                <img src="/storage/{{ $social->image }}" alt="">
+              </a>
+            @endforeach
+
           </div>
           <div class="sitebar__text">© FTGCompany. All Rights Reserved</div>
         </div>

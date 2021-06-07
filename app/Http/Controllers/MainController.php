@@ -12,6 +12,8 @@ use App\Models\Position;
 use App\Models\Project;
 use App\Models\Customer;
 use App\Models\Category;
+use App\Models\AboutCompany;
+use App\Models\Guarantee;
 use App\Blog;
 
 class MainController extends Controller
@@ -20,13 +22,14 @@ class MainController extends Controller
         return view('index', [
             'advantages' => Advantage::all(),
             'customers' => Customer::all()->take(5),
-            'projects' => Project::orderBy('created_at', 'desc')->take(3)->get(),
+            'blogs' => Blog::orderBy('created_at', 'desc')->take(3)->get(),
             'categories_menu' => Category::orderBy('created_at', 'desc')->get(),
         ]);
     }
 
     public function company(){
         return view('company', [
+            'c' => AboutCompany::first(),
             'advantages' => Advantage::all(),
             'certificates'=> Certificate::all()
         ]);
@@ -48,11 +51,37 @@ class MainController extends Controller
         }
         return view('team', compact('positions'));
     }
+    
     public function blog(){
-    	
         return view('blog', ['blogs' => Blog::all()]);
     }
+
+    public function blog_show($id) {
+        return view('blog-show', ['blog' => Blog::find($id)]);
+    }
+
+
+    public function guarange() {
+        return view('guarange', ['guarange' => guarantee::all()]);
+    }
+
     public function projects(){
-        return view('project', ['projects' => Project::all()]);
+        $projects = Project::all();
+
+        foreach($projects as $project){
+            $deadline = explode(" ", $project->deadline);
+            $project->deadline = $deadline;
+        }
+
+        return view('project', ['projects' => $projects]);
+    }
+
+    public function pageproject($id){
+        $project = Project::find($id);
+
+        $deadline = explode(" ", $project->deadline);
+        $project->deadline = $deadline;
+                
+        return view('pageproject', ['project'=> $project]);
     }
 }

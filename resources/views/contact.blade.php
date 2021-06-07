@@ -12,7 +12,7 @@
 </section>
 
 <section class="contact">
-  <div class="contact__title subtitle">контакты</div>
+  <div class="contact__title subtitle">Контакты</div>
   <div class="contact__wrapper">
     <div class="contact__wrapper-left">
       <div class="contact__wrapper-title subtitle">АДРЕС:</div>

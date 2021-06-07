@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 
 use App\Models\Category;
 use App\Models\Cart;
+use App\Models\Social;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,8 +32,8 @@ class AppServiceProvider extends ServiceProvider
         foreach($categories as $category){
             $category->subcategories = $category->subcategories;
         }
-        $cartCount = Cart::all()->count();
+        $socials = Social::all();
         View::share('categories', $categories);
-                View::share('cartCount', $cartCount);
+        View::share('socials', $socials);
     }
 }

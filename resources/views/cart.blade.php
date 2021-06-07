@@ -16,19 +16,19 @@
   <div class="cart__wrapper">
     <div class="cart__wrapper-left">
       <div class="cart__wrapper-left_title">ИНФОРМАЦИЯ ПОКУПАТЕЛЯ</div>
-      <button class="cart__wrapper-left_btn">Я новый покупатель</button>
+      {{-- <button class="cart__wrapper-left_btn">Я новый покупатель</button> --}}
       <div class="cart__wrapper-form">
         <div class="cart__wrapper-form_input">
-          <input type="text" placeholder="Имя" required>
+          <input type="text" placeholder="Имя" value="{{ Auth::user()->name }}" required>
         </div>
         <div class="cart__wrapper-form_input">
-          <input type="text" placeholder="Фамилия" required>
+          <input type="text" placeholder="Фамилия" value="{{ Auth::user()->surname }}" required>
         </div>
         <div class="cart__wrapper-form_input">
-          <input type="phone" placeholder="Телефон" required name="phone">
+          <input type="phone" placeholder="Телефон" value="{{ Auth::user()->number }}" required >
         </div>
         <div class="cart__wrapper-form_input">
-          <input type="email" placeholder="Электронная почта" required>
+          <input type="email" placeholder="Электронная почта" value="{{ Auth::user()->email }}" required>
         </div>
       </div>
       <div class="cart__wrapper-left_title">СПОСОБ ДОСТАВКИ</div>
@@ -54,9 +54,7 @@
         <div class="cart__wrapper-left_select">
           <select class="cart__wrapper-left_output">
             <option value="">Доставка почтой</option>
-            <option value="">Доставка почтой</option>
-            <option value="">Доставка почтой</option>
-            <option value="">Доставка почтой</option>
+            <option value="">Самовывоз</option>
           </select>
         </div>
       </div>
@@ -90,23 +88,23 @@
         <div class="cart__wrapper-right_count">
           <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
         </div>
-        <div class="cart__wrapper-right_subprice title"><span>{{ $product->price_kz * $item->quantity }}</span> руб</div>
+        <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> тг</div>
       </div>
       @endforeach
       <input type="hidden" name="sum" value="{{ $sum }}">
       <div class="cart__wrapper-right_text">
-        <div>Вартість товарів:</div>
-        <span>{{ $sum }} руб</span>
+        <div>Стоимость товаров:</div>
+        <span>{{ number_format($sum) }} тг</span>
       </div>
-      <div class="cart__wrapper-right_text">
+      {{-- <div class="cart__wrapper-right_text">
         <div>3книжка:</div>
         <span>-</span>
-      </div>
+      </div> --}}
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
-        <span>{{ $sum }} руб</span>
+        <span>{{ number_format($sum) }} тг</span>
       </div>
-      <button type="submit" class="cart__wrapper-right_btn">ОФоРМИТЬ ЗАКАЗ</button>
+      <button type="submit" class="cart__wrapper-right_btn">ОФОРМИТЬ ЗАКАЗ</button>
     </form>
       <div class="cart__wrapper-right_consultation">
         <div class="cart__wrapper-right_input">
@@ -121,30 +119,18 @@
 <section class="popular">
   <div class="popular__title subtitle">Популярные товары</div>
   <div class="popular__wrapper">
+    @foreach ($popular as $p)
+        
     <div class="card__wrapper-item">
-      <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
+      <div class="card__wrapper-img" style="background-image: url(/storage/{{ $p->image }});"></div>
       <div class="card__wrapper-text">
-        Система фільтрации PDF 216A-S (130 micron)
+        {{ $p->name }}
       </div>
-      <div class="card__wrapper-price"><span>120 500</span> руб</div>
-      <button class="card__wrapper-btn">Подробнее</button>
+      <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> тг</div>
+      <a class="card__wrapper-btn"  href="/product/{{ $p->id }}" style="color: #112468">Подробнее</a>
     </div>
-    <div class="card__wrapper-item">
-      <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
-      <div class="card__wrapper-text">
-        Система фільтрации PDF 216A-S (130 micron)
-      </div>
-      <div class="card__wrapper-price"><span>120 500</span> руб</div>
-      <button class="card__wrapper-btn">Подробнее</button>
-    </div>
-    <div class="card__wrapper-item">
-      <div class="card__wrapper-img" style="background-image: url(../images/product/item-1.jpg);"></div>
-      <div class="card__wrapper-text">
-        Система фільтрации PDF 216A-S (130 micron)
-      </div>
-      <div class="card__wrapper-price"><span>120 500</span> руб</div>
-      <button class="card__wrapper-btn">Подробнее</button>
-    </div>
+
+    @endforeach
   </div>
 </section>
 
