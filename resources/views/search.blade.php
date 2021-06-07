@@ -13,13 +13,21 @@
 <section class="project">
   <form action="/search" method="POST">
     @csrf
-    <input type="text" class="search" placeholder="Введите ваш запрос...">
+    <input type="text" name="q" class="search" placeholder="Введите ваш запрос...">
     <button type="submit">
       <img src="../images/search-icon.png" alt="">
     </button>
   </form>
+  @if($projects->count() == 0)
+    <div class="project__title subtitle" style="font-size: 25px">По запросу {{ $q }} ничего не найдено</div>
 
+  @elseif($q != null)
+  <div class="project__title subtitle" style="font-size: 25px">Проекты по запросу: {{ $q }}</div>
+
+  @else 
   <div class="project__title subtitle">НАШИ ПРОЕКТЫ</div>
+
+  @endif
   <div class="project__wrapper">
     @foreach ($projects as $project)
     <div class="project__wrapper-card">

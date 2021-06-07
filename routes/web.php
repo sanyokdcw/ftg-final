@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MainController;
@@ -65,6 +66,13 @@ Route::get('/search', function() {
 
     return view('search', compact('projects'));
 });
+
+Route::post('/search', function(Request $request) {
+    $q = $request->q;
+    $projects = Project::where('title', 'like', '%'.$q .'%')->get();
+    return view('search', compact('projects', 'q'));
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
