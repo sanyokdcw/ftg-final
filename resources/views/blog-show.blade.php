@@ -15,38 +15,55 @@
 <section class="detail-page">
   <div class="detail-page-title subtitle">КОНЦЕНТРИРОВАНИЕ ЗАСОЛЕННЫХ СТОЧНЫХ ВОД</div>
   <div class="detail-page__wrapper">
-    <div class="detail-page__left" style="width:50%">
-      <img src="/storage/{{ $blog->image }}" alt="">
-    </div>
-    <div class="detail-page__right"  style="width:50%">
-      <div class="detail-page__right-text">
-        <p>
-            {{ $blog->description }}
-        </p>
-      </div>
-
+    <div class="detail-page__left" style="width:100%;height: 600px;">
+      <img src="/storage/{{ $blog->image }}" alt="" style="height: 100%; object-fit:contain">
     </div>
   </div>
 </section>
 
 <section class="specifications">
-  <div class="specifications__top">
-    <div class="specifications__top-item">
-    </div>
-    <div class="specifications__top-item">
-      {{ $blog->name }}
-    </div>
-    <div class="specifications__top-item">
-    </div>
-  </div>
+
   <div class="specifications__bottom">
     <div class="specifications__bottom-item">
-{{ $blog->text }}
     </div>
+    <div class="text">
+      {!! $blog->text !!}
+    </div>
+  </div>
 
+
+
+  <div class="bottom-text">
+    <p>{{ $blog->description }}</p>
   </div>
 </section>
 
+<style>
 
+.bottom-text {
+  background: #F7F9FA;
+  margin-top: 40px;
+}
+
+.bottom-text p {
+  padding: 40px 70px;
+}
+
+ol {
+  list-style: none; counter-reset: li;
+  padding-left: 17px;
+}
+li::before {
+  content: counter(li) ". ";
+   color: #0575E6;
+  font-weight: 700;
+  display: inline-block; width: 1em;
+  margin-left: -1em
+  }
+  li {
+    counter-increment: li
+
+  }
+</style>
 @include('layouts.footer')
 </html>
