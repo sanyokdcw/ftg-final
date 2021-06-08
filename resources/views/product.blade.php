@@ -320,28 +320,32 @@
                 <div class="product__wrapper-right_title title">ВАШИ ТРЕБОВАНИЯ К КАЧЕСТВУ очищенной
                     воды:</div>
                 <div class="product__wrapper-right_block">
+
+
                     <div class="product__wrapper-right_radio">
-                        <input type="radio" name="radio-1" id="radio-1">
-                        <label for="radio-1">Техническая вода (душ, туалет)</label>
+                        <input type="radio" id="radio-11" name="radio">
+                        <label for="radio-11">Техническая вода (душ, туалет)</label>
+                    </div>
+
+
+                    <div class="product__wrapper-right_radio">
+                        <input type="radio" id="radio-22" name="radio">
+                        <label for="radio-22">Дистиллированная вода</label>
+                    </div>
+                    <div class="product__wrapper-right_radio" >
+                        <input type="radio" id="radio-33" name="radio">
+                        <label for="radio-33">Вода для парового котла</label>
                     </div>
                     <div class="product__wrapper-right_radio">
-                        <input type="radio" id="radio-2" name="radio-1">
-                        <label for="radio-2">Дистиллированная вода</label>
-                    </div>
-                    <div class="product__wrapper-right_radio" id="radio-1">
-                        <input type="radio" id="radio-3" name="radio-1">
-                        <label for="radio-3">Вода для парового котла</label>
+                        <input type="radio" id="radio-44" name="radio" >
+                        <label for="radio-44">Питьевая вода (ГСанПиН 2.2.4-171-10)</label>
                     </div>
                     <div class="product__wrapper-right_radio">
-                        <input type="radio" id="radio-4" name="radio-1">
-                        <label for="radio-4">Питьевая вода (ГСанПиН 2.2.4-171-10)</label>
+                        <input type="radio" id="radio-55" name="radio">
+                        <label for="radio-55">Вода для водогрейной котельной</label>
                     </div>
                     <div class="product__wrapper-right_radio">
-                        <input type="radio" id="radio-5" name="radio-1">
-                        <label for="radio-5">Вода для водогрейной котельной</label>
-                    </div>
-                    <div class="product__wrapper-right_radio">
-                        <input type="radio" id="radio-6" name="radio-1">
+                        <input type="radio" id="radio-6" name="radio">
                         <label for="radio-6">Водопроводная вода (ДСанПиН 2.2.4-171-10)</label>
                     </div>
                 </div>
@@ -599,9 +603,9 @@
         </span>
         <span class="tab-content" id="Tab4">
 
-            <div class="product__wrapper-right_performance" style="margin-top: 0">
+            <div class="product__wrapper-right_performance" style="margin-top: 0; margin-right: 70px;">
                 <div class="product__wrapper-right_title title">УКАЖИТЕ ПРОИЗВОДИТЕЛЬНОСТЬ:</div>
-                <div class="product__wrapper-right_block">
+                <div class="product__wrapper-right_block" style="    display: -webkit-box; flex-wrap: nowrap">
                     <div class="product__wrapper-right_column">
                         <div class="product__wrapper-right_text">Суточная м3 / сутки</div>
                         <input type="number" value="0">
@@ -611,7 +615,7 @@
                         <input type="number" value="0">
                     </div>
                 </div>
-                <button class="product__wrapper-right_btn">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</button>
+                <a href="#" class="product__wrapper-right_btn btn-contact" onclick="openModelRight()">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</a>
             </div>
     </span>
         
