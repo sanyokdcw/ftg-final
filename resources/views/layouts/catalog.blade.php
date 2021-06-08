@@ -86,7 +86,7 @@
 
             @foreach ($categories as $category)
             <li class="sitebar__drowdown-item sitebar__drowdown-item_active">
-              <div class="sitebar__drowdown-btn">{{ $category->name }}</div>
+              <div class="sitebar__drowdown-btn">{!! $category->name !!}</div>
               <div class="sitebar__drowdown-item_block">
                 @foreach ($category->subcategories as $subcategory)
                 <a href="/subcategory/{{ $subcategory->id }}" class="sitebar__drowdown-item_btn">
