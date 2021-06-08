@@ -5167,7 +5167,7 @@ button {
         width: 75%
     }
     .card__wrapper-item {
-        width: 100%
+        width: 100% !important;
     }
     .subtitle {
         font-size: 24px;
