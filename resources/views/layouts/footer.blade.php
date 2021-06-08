@@ -16,6 +16,7 @@
             <a href="/blog" class="footer__wrapper-link">Блог</a>
             <a href="/projects" class="footer__wrapper-link">Наши проекты</a>
             <a href="/team" class="footer__wrapper-link">Команда</a>
+
           </div>
         </div>
         <div class="footer__wrapper-item">
@@ -24,6 +25,7 @@
             <a href="/guarange" class="footer__wrapper-link">Гарантия и сервис</a>
             {{-- <a href="#" class="footer__wrapper-link">Калькулятор объема</a> --}}
             <a href="/subcategory/3" class="footer__wrapper-link">КАТАЛОГ</a>
+            <a href="/calc" class="footer__wrapper-link">Калькулятор</a>
           </div>
         </div>
         <div class="footer__wrapper-item" style="

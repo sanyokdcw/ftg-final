@@ -129,7 +129,7 @@
               {{ $order->status }}
             </div>
             <div class="office__order-item_tbody">
-              {{ $order->created_at }}
+              {{ $order->created_at->format('d-m-Y') }}
             </div>
           </div>
           <div class="office__order-item_row_bottom">
