@@ -14,11 +14,22 @@ use Auth;
 
 class ShopController extends Controller
 {
-    public function card($id){
+    public function card($id, Request $request){
         $subcategory = Subcategory::find($id);
-        $products = $subcategory->products;
-        return view('card', compact('subcategory', 'products'));
+        $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+        if($request->has('sort')) {
+            $sort = $request->sort;
+            if($sort == 'down')
+                $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'desc')->get();
+            if($sort == 'up')
+                $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+
+            return view('card', compact('subcategory', 'products', 'sort'));
+        }
+        $sort = 'up';
+        return view('card', compact('subcategory', 'products', 'sort'));
     }
+
 
     public function card_detail($id){
         $product = Product::find($id);
