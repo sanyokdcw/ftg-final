@@ -31,7 +31,7 @@
               <a href="tel:{{ setting('contacts.telephone') }}">
                 <img src="../images/phone-1.png" alt="">
                 <div class="sitebar__wrapper-item_right">
-                <a href="tel:{{setting('contacts.telephone')}}">
+                <a href="tel:{{setting('contacts.telephone')}}" style="font-size: 11px;">
                   {{ setting('contacts.telephone') }}
                   </a>
                 </div>
@@ -41,7 +41,7 @@
             <div class="sitebar__wrapper-item sitebar__wrapper-times">
               <a href="tel:88008001234">
                 <img src="../images/time-icon.png" alt="">
-                <div class="sitebar__wrapper-item_right">
+                <div class="sitebar__wrapper-item_right" style="font-size: 11px;">
                   <div>
                     {{ setting('contacts.schedule') }}
                   </div>

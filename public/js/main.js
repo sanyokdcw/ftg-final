@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
         spaceBetween: 60,
         pagination: {
             el: ".swiper-pagination",
+            clickable: true
         },
         breakpoints: {
             1550: {
