@@ -3767,10 +3767,7 @@ button {
         max-width: 100%
     }
     .contact__wrapper {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column
+  
     }
     .contact__wrapper iframe {
         width: 100%
