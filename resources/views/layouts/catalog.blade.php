@@ -6,6 +6,8 @@
 </head>
 
 <body>
+  <div class="modal-wrapper" id="modal-wrapper">
+  </div>
 
   <div class="main">
     <button class="chat">

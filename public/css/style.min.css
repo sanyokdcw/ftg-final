@@ -8,6 +8,13 @@
     --swiper-theme-color: #007aff
 }
 
+.modal-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
 .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -639,7 +646,6 @@ button.swiper-pagination-bullet {
 }
 html,
 body {
-    padding: 25px 0 0;
     margin: 0;
     color: #474747;
     font-size: 15px;

@@ -16,24 +16,26 @@
       </div>
     </div>
     <div class="form__wrapper">
-      <div class="form__title">ОБРАТНЫЙ ЗВОНОК</div>
+      <div class="form__title">Подобрать систему</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
       </button>
       <div class="form__input">
-        <input type="text" placeholder="ФИО*">
+        <input type="text" placeholder="Ваше имя*">
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="Электронная почта*">
+        <input type="tel" placeholder="Email*">
       </div>
       <div class="form__input">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Задайте вопрос"></textarea>
+        <input type="tel" placeholder="Номер телефона*">
       </div>
       <div class="form__input">
         <input type="submit" value="Отправить">
       </div>
     </div>
   </div>
+
+
     <header class="header">
       <nav class="menu">
         <div class="header__fixed-close">

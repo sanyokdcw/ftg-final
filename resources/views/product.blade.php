@@ -615,7 +615,7 @@
                         <input type="number" value="0">
                     </div>
                 </div>
-                <a href="#" class="product__wrapper-right_btn btn-contact" onclick="openModelRight()">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</a>
+                <a href="#" class="product__wrapper-right_btn" onclick="openModelRight('product')">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</a>
             </div>
     </span>
         
