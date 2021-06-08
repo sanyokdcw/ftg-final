@@ -3735,6 +3735,7 @@ button {
     }
 }
 @media(max-width: 1550px) {
+    
     .property__wrapper-item_title {
         margin-top: 5px
     }
@@ -3809,6 +3810,12 @@ button {
     .system__bg {
         background-size: cover;
         background-position: center center
+    }
+    .help__wrapper img {
+        width: 110%;
+    }
+    .help__wrapper-left {
+        margin-right: 70px;
     }
 }
 @media(max-width: 1450px) {
