@@ -49,18 +49,18 @@
   padding: 40px 70px;
 }
 
-ol {
+.text ol {
   list-style: none; counter-reset: li;
   padding-left: 17px;
 }
-li::before {
+.text li::before {
   content: counter(li) ". ";
    color: #0575E6;
   font-weight: 700;
   display: inline-block; width: 1em;
   margin-left: -1em
   }
-  li {
+.text li {
     counter-increment: li
 
   }
