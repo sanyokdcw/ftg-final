@@ -4403,6 +4403,13 @@ button {
     }
 }
 @media(max-width: 800px) {
+    .property__wrapper { 
+        flex-direction: column;
+    }
+    .news__wrapper {
+        flex-direction: column;
+
+    }
     .chat {
         width: 60px;
         height: 60px;
@@ -4893,7 +4900,7 @@ button {
         width: 100%
     }
     .news__wrapper-item_top {
-        display: none
+        /* display: none */
     }
     .news__wrapper-item_title {
         font-size: 16px;
