@@ -5463,3 +5463,68 @@ button {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg)
 }
+.calc__symbol{
+    margin: 0 12px;
+}
+.calc__row {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.calc__left {
+    width: 40%;
+    display:flex;
+    align-items: center
+}
+
+.calc__right {
+    width:60%;
+    display:flex;
+    align-items: center;
+}
+
+.calc__right input {
+    background: #F7F9FA;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 20px 30px;
+    border-radius: 100px;
+    text-align: center;
+}
+.calc__margin {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media all and (max-width: 1024px) {
+    .calc__row {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    .calc__left {
+        width: 100%;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .calc__right {
+        width:100%;
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .calc__right input {
+        margin-bottom: 10px;
+    }
+
+    .calc__margin {
+        margin: 0;
+    }
+
+    .calc__text {
+        margin-bottom: 20px;
+    }
+}

@@ -59,7 +59,41 @@
         <div class="calc__row">
             <div class="calc__left">
                 <div class="calc__text">
-                    Дозировка товарного ингибитора (ваше значения):
+                    У баку готуємо розчин з розрахунку:
+                </div>
+            </div>
+            <div class="calc__right">
+                <input type="text" name="" id="" placeholder="кг продажного">
+                <div class="calc__symbol">
+                    +
+                </div>
+                <input type="text" name="" id="" placeholder="кг/сутки">
+            </div>
+        </div>
+        <div class="calc__row">
+            <div class="calc__left">
+                <div class="calc__text">
+                    Насос-дозатор OLB02-07 должен дозировать:
+                </div>
+            </div>
+            <div class="calc__right">
+                <input type="text" name="" id="" placeholder="мл/ч разбавлены">
+            </div>
+        </div>
+        <div class="calc__row">
+            <div class="calc__left">
+                <div class="calc__text">
+
+                </div>
+            </div>
+            <div class="calc__right">
+                <input type="text" name="" id="" placeholder="импульсов в мин">
+            </div>
+        </div>
+        <div class="calc__row">
+            <div class="calc__left">
+                <div class="calc__text">
+                    Через
                 </div>
             </div>
             <div class="calc__right">
@@ -69,76 +103,32 @@
         <div class="calc__row">
             <div class="calc__left">
                 <div class="calc__text">
-                    Дозировка товарного ингибитора (ваше значения):
+                    Ресурс растворимого бака составляет:
                 </div>
             </div>
             <div class="calc__right">
-                <input type="text" name="" id="" placeholder="0 мг/л ( г/м3 )">
-            </div>
-        </div>
-        <div class="calc__row">
-            <div class="calc__left">
-                <div class="calc__text">
-                    Дозировка товарного ингибитора (ваше значения):
+                <input type="text" name="" id="" placeholder="Часов">
+                <div class="calc__symbol">
+                    =
                 </div>
-            </div>
-            <div class="calc__right">
-                <input type="text" name="" id="" placeholder="0 мг/л ( г/м3 )">
-            </div>
-        </div>
-        <div class="calc__row">
-            <div class="calc__left">
-                <div class="calc__text">
-                    Дозировка товарного ингибитора (ваше значения):
-                </div>
-            </div>
-            <div class="calc__right">
-                <input type="text" name="" id="" placeholder="0 мг/л ( г/м3 )">
-            </div>
-        </div>
-        <div class="calc__row">
-            <div class="calc__left">
-                <div class="calc__text">
-                    Дозировка товарного ингибитора (ваше значения):
-                </div>
-            </div>
-            <div class="calc__right">
-                <input type="text" name="" id="" placeholder="0 мг/л ( г/м3 )">
+                <input type="text" name="" id="" placeholder="Суток работы">
             </div>
         </div>
     </section>
+    <div class="calc__btn">
+        <div class="form__input" style="width: 50%;">
+            <input type="submit" value="Отправить" style="">
+        </div>
+    </div>
+
 </section>
+
 <style>
-
-.calc__row {
+.calc__btn {
     display: flex;
-    margin-bottom: 50px;
-}
-
-.calc__left {
-    width: 50%;
-    display:flex;
-    align-items: center
-}
-
-.calc__right {
-    width:50%;
-    display:flex;
+    flex-direction: column;
     align-items: center;
-}
-
-.calc__right input {
-    background: #F7F9FA;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 20px 30px;
-    border-radius: 100px;
-    text-align: center;
-}
-.calc__margin {
-    margin-left: 10px;
-    margin-right: 10px;
+    justify-content: center;
 }
 </style>
 
