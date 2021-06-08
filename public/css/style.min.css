@@ -3820,6 +3820,12 @@ button {
     .footer__bottom {
         padding: 20px
     }
+    .help__wrapper img {
+        width: 110%;
+    }
+    .help__wrapper-left {
+        margin-right: 70px;
+    }
 }
 @media(max-width: 1350px) {
     .help__wrapper img {
