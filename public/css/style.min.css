@@ -1095,7 +1095,6 @@ button {
 }
 .system__wrapper-item_text {
     text-align: center;
-    max-width: 218px;
     color: #474747;
     line-height: 25px;
     margin: 25px auto 0;
