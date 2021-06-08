@@ -23,5 +23,7 @@ function changeTab(TabName, evt) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(TabName).style.display = "block";
     document.getElementById(`${TabName + 'link'}`).classList.add("product__wrapper-left_item_active");
-
+    document.querySelector('.url__text').scrollIntoView({
+        behavior: 'smooth'
+      });
 }
