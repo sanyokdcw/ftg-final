@@ -61,6 +61,12 @@ Route::post('/cart-add', [ShopController::class, 'cart_add'])->middleware('auth'
 
 Route::post('/add-order', [ShopController::class, 'add_order'])->middleware('auth');
 Route::post('/password_change', [UserController::class, 'password_change'])->middleware('auth');
+
+Route::post('/request', function() {
+    return redirect()->back();
+});
+
+
 Route::get('/search', function() {
     $projects = Project::all();
     $q = null;

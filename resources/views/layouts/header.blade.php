@@ -5,6 +5,8 @@
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
       </button>
+      <form action="/request" method="POST">
+        @csrf
       <div class="form__input">
         <input type="text" placeholder="Ваше имя*">
       </div>
@@ -14,12 +16,15 @@
       <div class="form__input">
         <input type="submit" value="Отправить">
       </div>
+    </form>
     </div>
     <div class="form__wrapper">
       <div class="form__title">Подобрать систему</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
       </button>
+      <form action="/request" method="POST">
+        @csrf
       <div class="form__input">
         <input type="text" placeholder="Ваше имя*">
       </div>
@@ -32,6 +37,7 @@
       <div class="form__input">
         <input type="submit" value="Отправить">
       </div>
+      </form>
     </div>
   </div>
 
