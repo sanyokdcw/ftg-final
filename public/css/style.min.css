@@ -2965,7 +2965,7 @@ button {
 }
 .office__order:nth-child(1) {
     display: block;
-    max-width: 100%
+    max-width: 800px;
 }
 .office__order-form {
     display: -webkit-box;

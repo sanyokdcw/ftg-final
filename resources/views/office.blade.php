@@ -62,7 +62,7 @@
           <input type="text" placeholder="Отчество" value="{{ Auth::user()->second_name }}" required>
         </div>
         <div class="office__order-form_input">
-          <input type="email" placeholder="Электронная почта" vaue="{{ Auth::user()->email }}" required>
+          <input type="email" placeholder="Электронная почта" value="{{ Auth::user()->email }}" required>
         </div>
         <div class="office__order-form_input">
           <input type="text" placeholder="Телефон" required name="phone" value="{{ Auth::user()->number }}">
