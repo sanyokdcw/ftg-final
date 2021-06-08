@@ -3651,6 +3651,9 @@ button {
     background-color: black
 }
 @media(max-width: 1750px) {
+    .card__wrapper-item {
+        width: 30%;
+    }
     .guarange__wrapper {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
