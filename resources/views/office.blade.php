@@ -78,18 +78,22 @@
 
       <div class="office__order-password">
         <div class="office__order-title title">Сменить пароль</div>
-        <div class="office__order-password_wrapper">
-          <div class="office__order-password_input">
-            <input type="password" placeholder="Введите старый пароль">
+        <form action="/password_change" method="POST">
+          @csrf
+          <div class="office__order-password_wrapper">
+            <div class="office__order-password_input">
+              <input type="password" placeholder="Введите старый пароль">
+              <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            </div>
+            <div class="office__order-password_input">
+              <input type="password" name="password" placeholder="Введите новый пароль">
+            </div>
+            <div class="office__order-password_input">
+              <input type="password" name="password_again" placeholder="Повторите новый пароль">
+            </div>
           </div>
-          <div class="office__order-password_input">
-            <input type="password" placeholder="Введите новый пароль">
-          </div>
-          <div class="office__order-password_input">
-            <input type="password" placeholder="Повторите новый пароль">
-          </div>
-        </div>
-        <button class="office__order-btn">Сменить пароль</button>
+        <button class="office__order-btn" type="submit">Сменить пароль</button>
+      </form>
       </div>
     </div>
 
