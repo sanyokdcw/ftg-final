@@ -3398,9 +3398,9 @@ button {
     justify-content: center
 }
 .product__wrapper-right_column:nth-child(3) {
-    -webkit-box-pack: end;
+    /* -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end
+    justify-content: flex-end */
 }
 .product__wrapper-right_requirement {
     margin-top: 60px
@@ -3453,11 +3453,11 @@ button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-right: 128px
+    margin-right: 60px
 }
 .product__wrapper-right_text {
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 30px;
     text-transform: uppercase;
     color: #222222;
