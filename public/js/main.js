@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
         },
         breakpoints: {
             1550: {
-                slidesPerView: 3,
+                slidesPerView: 4,
             },
             760: {
                 slidesPerView: 2,
@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
             const projectThumbs = new Swiper(projectMySwiper[i], {
                 breakpoints: {
                     500: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                     },
                     320: {
                         slidesPerView: 3,
