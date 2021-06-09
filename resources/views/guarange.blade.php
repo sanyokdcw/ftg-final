@@ -7,8 +7,8 @@
 
 
 <section class="url">
-  <div class="url__text">Главная</div>
-  <div class="url__text">Доставка и оплата</div>
+  <div class="url__text"><a href="/">Главная</a></div>
+  <div class="url__text">Гарантия и сервис</div>
 </section>
 
 <div class="guarange">

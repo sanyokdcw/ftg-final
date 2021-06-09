@@ -41,7 +41,7 @@ class MainController extends Controller
         ]);
     }
     public function partners(){
-        return view('pather', ['cards'=>PartnerCard::all()]);
+        return view('partner', ['cards'=>PartnerCard::all()]);
     }
 
     public function team(){

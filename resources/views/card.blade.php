@@ -7,7 +7,7 @@
       
 <section class="url">
   <div class="url__text">Главная</div>
-  <div class="url__text">Каталог</div>
+  <div class="url__text">{!! App\Models\Category::find($subcategory->category_id)->name !!}</div>
   <div class="url__text">{{ $subcategory->name }}</div>
 </section>
 

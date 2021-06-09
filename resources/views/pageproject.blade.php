@@ -7,9 +7,8 @@
 
 
 <section class="url">
-  <div class="url__text">Главная</div>
-  <div class="url__text">Каталог</div>
-  <div class="url__text">Дисковые фильтры</div>
+  <div class="url__text"><a href="/">Главная</a></div>
+  <div class="url__text"><a href="/projects">Наши проекты</a></div>
   <div class="url__text">{{ $project->title }}</div>
 </section>
 

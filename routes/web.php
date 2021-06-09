@@ -49,7 +49,7 @@ Route::get('/company', [MainController::class, 'company']);
 
 Route::get('/delivery', [MainController::class, 'delivery']);
 
-Route::get('/pather', [MainController::class, 'partners']);
+Route::get('/partner', [MainController::class, 'partners']);
 
 Route::get('/team', [MainController::class, 'team']);
 
