@@ -59,8 +59,22 @@
               <div class="sitebar__wrapper-item_left">
                 <img src="../images/card-icon.png" alt="">
               </div>
-              <div class="sitebar__wrapper-item_right">
-                UAH
+              <div class="sitebar__wrapper-item_right dropdown">
+                <span>
+                  UAH
+                </span>
+                <div class="dropdown-content" style="min-width: 0">
+                  <p style="font-size: 14px;">
+                    <a href="#">
+                      KZT
+                    </a>
+                  </p>
+                  <p style="font-size: 14px;">
+                    <a href="#">
+                      RUB
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -113,3 +127,4 @@
           <div class="sitebar__text">© FTGCompany. All Rights Reserved</div>
         </div>
       </section>
+      
