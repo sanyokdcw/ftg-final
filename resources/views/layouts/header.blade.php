@@ -8,10 +8,16 @@
       <form action="/request" method="POST">
         @csrf
       <div class="form__input">
-        <input type="text" placeholder="Ваше имя*">
+        <input type="text" placeholder="ФИО*">
+      </div>
+      <div class="form__input">
+        <input type="text" placeholder="Электронная почта*">
       </div>
       <div class="form__input">
         <input type="tel" placeholder="Номер телефона*">
+      </div>
+      <div class="form__input">
+        <textarea>Задайте вопрос</textarea> 
       </div>
       <div class="form__input">
         <input type="submit" value="Отправить">
