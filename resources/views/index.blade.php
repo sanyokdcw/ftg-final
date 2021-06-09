@@ -90,7 +90,7 @@
     <div class="help__wrapper-right">
       <div class="help__wrapper-title">Помощник при выборе систем</div>
       <div class="help__wrapper-text">Мы обязательно Вам поможем!</div>
-      <button class="help__wrapper-btn">Подобрать СИСТЕМУ</button>
+      <a href="/product/" class="help__wrapper-btn">Подобрать СИСТЕМУ</a>
     </div>
   </div>
 </section>

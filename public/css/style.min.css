@@ -1281,7 +1281,7 @@ button {
     justify-content: space-between
 }
 .help__wrapper-right {
-    margin-top: 75px
+    margin-top: 45px
 }
 .help__wrapper-title {
     font-size: 40px;
@@ -3773,12 +3773,7 @@ button {
     }
     .delivery__wrapper,
     .methods__wrapper {
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        width: 100%;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center
+
     }
     .delivery__wrapper-item,
     .methods__wrapper-item {
@@ -3823,12 +3818,7 @@ button {
         margin-bottom: 10px
     }
     .company__block {
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        margin-top: 20px
+
     }
     .company__block-item {
         margin: 10px
@@ -3879,7 +3869,7 @@ button {
         width: 110%;
     }
     .help__wrapper-left {
-        margin-right: 70px;
+        margin-right: 160px;
     }
 }
 @media(max-width: 1350px) {
@@ -5527,8 +5517,8 @@ button {
     text-align: center;
 }
 .calc__margin {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 @media all and (max-width: 1024px) {

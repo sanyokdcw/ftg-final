@@ -25,7 +25,7 @@
             <a href="/guarange" class="footer__wrapper-link">Гарантия и сервис</a>
             {{-- <a href="#" class="footer__wrapper-link">Калькулятор объема</a> --}}
             <a href="/subcategory/3" class="footer__wrapper-link">КАТАЛОГ</a>
-            <a href="/calc" class="footer__wrapper-link">Калькулятор</a>
+            <a href="/calc" class="footer__wrapper-link">Калькулятор объема</a>
           </div>
         </div>
         <div class="footer__wrapper-item" style="

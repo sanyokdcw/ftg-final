@@ -38,8 +38,60 @@
   </div>
 </section>
 
+<div class="bottom-info">
+  <div class="blog__button-time">{{ $blog->created_at->format('d-m-Y') }}</div>
+  <div class="socials">
+    @foreach ($socials as $social)
+      <a href="{{ $social->link }}" class="sitebar__social-link" style="margin-right: 5px;">
+        <img src="/storage/{{ $social->image }}" alt="">
+      </a>
+    @endforeach
+  </div>
+</div>
+
+<div class="next">
+  <div class="next__text">
+    Следующая статья
+  </div>
+  <a href="/blog/{{ $next_id }}">
+    <img src="/images/Pajination.jpg" alt="">
+  </a>
+</div>
+
+<section class="popular">
+  <div class="popular__title subtitle">Популярные товары</div>
+  <div class="popular__wrapper">
+    @foreach ($products as $product)
+      <div class="card__wrapper-item">
+        <div class="card__wrapper-img" style="background-image: url(/storage/{{ $product->image }});"></div>
+        <div class="card__wrapper-text">
+          {{ $product->name }}
+        </div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+        <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
+      </div>
+    @endforeach
+  </div>
+</section>
+
 <style>
 
+.next {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.next__text {
+  margin-right: 20px
+}
+
+
+.bottom-info {
+  display:flex;
+  justify-content: space-between;
+  align-items: center
+}
 .bottom-text {
   background: #F7F9FA;
   margin-top: 40px;

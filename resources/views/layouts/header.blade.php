@@ -79,7 +79,7 @@
             </div>
           </li>
           <li class="menu__list">
-            <a href="/pather" class="menu__list-link">Партнерам</a>
+            <a href="/partner" class="menu__list-link">Партнерам</a>
           </li>
           <li class="menu__list">
             <a href="/contact" class="menu__list-link">Контакты</a>
@@ -89,12 +89,14 @@
       <div class="header__button">
         @if(Auth::check())
           <a href="/logout" style="margin:0">Выйти</a>
+          <a href="/office" class="header__button-user">
+            <img src="../images/user-icon.png" alt="" style="">
+          </a>
         @else 
-          <a href="/login" style="margin:0">Войти</a>
+          <a href="/office" class="header__button-user">
+            <img src="../images/user-icon.png" alt="" style="">
+          </a>
         @endif
-        <a href="/office" class="header__button-user">
-          <img src="../images/user-icon.png" alt="" style="">
-        </a>
         <a href="/search" class="header__button-search">
           <img src="../images/search-icon.png" alt="">
         </a>

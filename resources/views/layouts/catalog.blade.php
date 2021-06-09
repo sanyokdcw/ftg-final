@@ -10,7 +10,7 @@
   </div>
   
   <div class="main">
-    <button class="chat">
+    <button class="chat btn-contact">
       <img src="../images/chat.png" alt="">
     </button>
     <div class="container">
