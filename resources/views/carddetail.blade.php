@@ -11,7 +11,7 @@
 @endphp
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
-  <div class="url__text"><a href="/">{{ App\Models\Subcategory::find($product->subcategory_id)->name }}</a></div>
+  <div class="url__text"><a href="/subcategory/{{ App\Models\Subcategory::find($product->subcategory_id)->id }}">{{ App\Models\Subcategory::find($product->subcategory_id)->name }}</a></div>
   <div class="url__text">{{ $product->name }}</div>
 </section>
 
@@ -38,9 +38,9 @@
         @if ($currency == 'KZT')
           {{  number_format($product->price_kz) }} тенге
         @elseif($currency == 'UAH')
-          {{  number_format($product->price_UAH) }} гривен
+          {{  number_format($product->price_uah) }} гривен
         @elseif($currency == 'RUB')
-          {{  number_format($product->rub) }} рублей
+          {{  number_format($product->price_ru) }} рублей
         @endif
         
       </div>
@@ -56,7 +56,7 @@
           @elseif($currency == 'UAH')
             {{ number_format($product->price_uah) }} грн
           @elseif($currency == 'RUB')
-            {{  number_format($product->price_rub) }} руб
+            {{  number_format($product->price_ru) }} руб
           @endif
         </div>
         <form action="/cart-add" method="POST">
