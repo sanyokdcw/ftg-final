@@ -16,7 +16,7 @@
           <img src="/storage/{{ $category->image }}" alt="">
         </div>
         <div class="system__wrapper-item_text">
-          {{ $category->name }}
+          {!! $category->name !!}
         </div>
       </div>
       @endforeach
