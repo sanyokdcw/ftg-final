@@ -4,7 +4,12 @@
 @include('layouts.catalog')
 @include('layouts.header')
 @section('content')
-
+@php
+  if (session('currency') == null){
+    session(['currency' => 'KZT']);
+  }
+  $currency = session('currency');
+@endphp
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
   <div class="url__text">Наши проекты</div>
@@ -61,11 +66,11 @@
               выполнения
             </div>
             <div class="project__wrapper-info_number">
-              @if (session('currency') == 'KZT')
+              @if ($currency == 'KZT')
                 {{ number_format($project->price_kz) }} <span>тг</span>
-              @elseif(session('currency') == 'UAH')
+              @elseif($currency == 'UAH')
                 {{ number_format($project->price_uah) }} <span>грн</span>
-              @elseif(session('currency') == 'RUB')
+              @elseif($currency == 'RUB')
                 {{ number_format($project->price_rub) }} <span>руб</span>
               @endif
             </div>

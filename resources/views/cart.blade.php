@@ -4,7 +4,12 @@
 @include('layouts.catalog')
 @include('layouts.header')
 @section('content')
-
+@php
+  if (session('currency') == null){
+    session(['currency' => 'KZT']);
+  }
+  $currency = session('currency');
+@endphp
         
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
@@ -102,11 +107,11 @@
       <input type="hidden" name="sum" value="{{ $sum }}">
       <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span>{{ number_format($sum) }} @if (session('currency') == 'KZT')
+        <span>{{ number_format($sum) }} @if ($currency == 'KZT')
             тг
-        @elseif(session('currency') == 'UAH')
+        @elseif($currency == 'UAH')
             грн
-        @elseif(session('currency') == 'RUB')
+        @elseif($currency == 'RUB')
             руб
         @endif
         </span>
@@ -118,11 +123,11 @@
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
         <span>{{ number_format($sum) }} 
-          @if (session('currency') == 'KZT')
+          @if ($currency == 'KZT')
             тг
-          @elseif(session('currency') == 'UAH')
+          @elseif($currency == 'UAH')
             грн
-          @elseif(session('currency') == 'RUB')
+          @elseif($currency == 'RUB')
             руб
           @endif
         </span>
@@ -150,11 +155,11 @@
         {{ $p->name }}
       </div>
       <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> 
-        @if (session('currency') == 'KZT')
+        @if ($currency == 'KZT')
             тг
-        @elseif(session('currency') == 'UAH')
+        @elseif($currency == 'UAH')
             грн
-        @elseif(session('currency') == 'RUB')
+        @elseif($currency == 'RUB')
             руб
         @endif
       </div>

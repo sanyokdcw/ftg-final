@@ -5,6 +5,7 @@
 @include('layouts.header')
 @section('content')
 
+
 <section class="url">
     <div class="url__text">Главная</div>
     <div class="url__text">Подобрать продукцию</div>

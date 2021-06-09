@@ -4,7 +4,13 @@
 @include('layouts.catalog')
 @include('layouts.header')
 @section('content')
-      
+@php
+  if (session('currency') == null){
+    session(['currency' => 'KZT']);
+  }
+  $currency = session('currency');
+@endphp      
+
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
   <div class="url__text">{!! App\Models\Category::find($subcategory->category_id)->name !!}</div>
@@ -54,11 +60,11 @@
           {{ $product->name }}
         </div>
         <div class="card__wrapper-price"><span>
-          @if (session('currency') == 'KZT')
+          @if ($currency == 'KZT')
             {{ number_format($product->price_kz) }}</span> тг
-          @elseif(session('currency') == 'UAH')
+          @elseif($currency == 'UAH')
             {{ number_format($product->price_uah) }}</span> грн
-          @elseif(session('currency') == 'RUB')
+          @elseif($currency == 'RUB')
             {{ number_format($product->price_rub) }}</span> руб
           @endif
         </div>
