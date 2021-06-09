@@ -35,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
         $socials = Social::all();
         View::share('categories', $categories);
         View::share('socials', $socials);
+        
+        // if(session('currency') == null){
+            // dump(1);
+            // session(['currency'=>'KZT']);
+        // }
     }
 }

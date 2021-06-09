@@ -6,7 +6,7 @@
 @section('content')
       
 <section class="url">
-  <div class="url__text">Главная</div>
+  <div class="url__text"><a href="/">Главная</a></div>
   <div class="url__text">{!! App\Models\Category::find($subcategory->category_id)->name !!}</div>
   <div class="url__text">{{ $subcategory->name }}</div>
 </section>
@@ -53,7 +53,15 @@
         <div class="card__wrapper-text">
           {{ $product->name }}
         </div>
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+        <div class="card__wrapper-price"><span>
+          @if (session('currency') == 'KZT')
+            {{ number_format($product->price_kz) }}</span> тг
+          @elseif(session('currency') == 'UAH')
+            {{ number_format($product->price_uah) }}</span> грн
+          @elseif(session('currency') == 'RUB')
+            {{ number_format($product->price_rub) }}</span> руб
+          @endif
+        </div>
         <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
       </div>
       @endforeach

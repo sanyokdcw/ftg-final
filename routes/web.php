@@ -37,7 +37,10 @@ Route::get('/product', function () {
     return view('product');
 });
 
+Route::get('/currency/{currency}', [ShopController::class, 'currency_change']);
+
 Route::get('/projects', [MainController::class, 'projects']);
+
 Route::get('/project/{id}', [MainController::class, 'pageproject']);
 
 Route::get('/blog',  [MainController::class, 'blog']);

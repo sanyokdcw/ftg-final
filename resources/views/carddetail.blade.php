@@ -5,8 +5,8 @@
 @include('layouts.header')
 
 <section class="url">
-  <div class="url__text">Главная</div>
-  <div class="url__text">Каталог</div>
+  <div class="url__text"><a href="/">Главная</a></div>
+  <div class="url__text"><a href="/">{{ App\Models\Subcategory::find($product->subcategory_id)->name }}</a></div>
   <div class="url__text">{{ $product->name }}</div>
 </section>
 
@@ -29,14 +29,31 @@
           <span>{{ $product->existence }}</span>
         </div>
       </div>
-      <div class="card-detail__wrapper-right_price">{{  number_format($product->price_kz) }} тенге</div>
+      <div class="card-detail__wrapper-right_price">
+        @if (session('currency') == 'KZT')
+          {{  number_format($product->price_kz) }} тенге
+        @elseif(session('currency') == 'UAH')
+          {{  number_format($product->price_UAH) }} гривен
+        @elseif(session('currency') == 'RUB')
+          {{  number_format($product->rub) }} рублей
+        @endif
+        
+      </div>
       <div class="card-detail__wrapper-right_block">
         <div class="card-detail__wrapper-right_count">
           <button class="card-detail__wrapper-right_minus" onclick="countDecrement()">-</button>
           <div class="card-detail__wrapper-right_number" id="counter">1</div>
           <button class="card-detail__wrapper-right_plus" onclick="countIncrement()">+</button>
         </div>
-        <div class="card-detail__wrapper-right_subprice title">{{ number_format($product->price_kz) }} тг</div>
+        <div class="card-detail__wrapper-right_subprice title">
+          @if (session('currency') == 'KZT')
+            {{ number_format($product->price_kz) }} тг
+          @elseif(session('currency') == 'UAH')
+            {{ number_format($product->price_uah) }} грн
+          @elseif(session('currency') == 'RUB')
+            {{  number_format($product->price_rub) }} руб
+          @endif
+        </div>
         <form action="/cart-add" method="POST">
           @csrf
           <input type="hidden" name="quantity" id="quantity" value="1">

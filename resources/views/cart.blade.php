@@ -7,7 +7,7 @@
 
         
 <section class="url">
-  <div class="url__text">Главная</div>
+  <div class="url__text"><a href="/">Главная</a></div>
   <div class="url__text">Корзина</div>
 </section>
 
@@ -88,13 +88,28 @@
         <div class="cart__wrapper-right_count">
           <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
         </div>
-        <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> тг</div>
+        <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> 
+          @if (session('currency') == 'KZT')
+            тг
+          @elseif(session('currency') == 'UAH')
+            грн
+          @elseif(session('currency') == 'RUB')
+            руб
+          @endif
+        </div>
       </div>
       @endforeach
       <input type="hidden" name="sum" value="{{ $sum }}">
       <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span>{{ number_format($sum) }} тг</span>
+        <span>{{ number_format($sum) }} @if (session('currency') == 'KZT')
+            тг
+        @elseif(session('currency') == 'UAH')
+            грн
+        @elseif(session('currency') == 'RUB')
+            руб
+        @endif
+        </span>
       </div>
       {{-- <div class="cart__wrapper-right_text">
         <div>3книжка:</div>
@@ -102,7 +117,15 @@
       </div> --}}
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
-        <span>{{ number_format($sum) }} тг</span>
+        <span>{{ number_format($sum) }} 
+          @if (session('currency') == 'KZT')
+            тг
+          @elseif(session('currency') == 'UAH')
+            грн
+          @elseif(session('currency') == 'RUB')
+            руб
+          @endif
+        </span>
       </div>
       <button type="submit" class="cart__wrapper-right_btn">ОФОРМИТЬ ЗАКАЗ</button>
     </form>
@@ -126,7 +149,15 @@
       <div class="card__wrapper-text">
         {{ $p->name }}
       </div>
-      <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> тг</div>
+      <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> 
+        @if (session('currency') == 'KZT')
+            тг
+        @elseif(session('currency') == 'UAH')
+            грн
+        @elseif(session('currency') == 'RUB')
+            руб
+        @endif
+      </div>
       <a class="card__wrapper-btn"  href="/product/{{ $p->id }}" style="color: #112468">Подробнее</a>
     </div>
 

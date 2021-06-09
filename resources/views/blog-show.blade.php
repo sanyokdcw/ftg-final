@@ -7,8 +7,8 @@
 
 
 <section class="url">
-  <div class="url__text">Главная</div>
-  <div class="url__text">Блог</div>
+  <div class="url__text"><a href="/">Главная</a></div>
+  <div class="url__text"><a href="/blog">Блог</a></div>
   <div class="url__text">{{ $blog->name }}</div>
 </section>
 

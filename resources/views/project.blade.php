@@ -61,7 +61,13 @@
               выполнения
             </div>
             <div class="project__wrapper-info_number">
-              {{ $project->price_kz }} <span>тг</span>
+              @if (session('currency') == 'KZT')
+                {{ number_format($project->price_kz) }} <span>тг</span>
+              @elseif(session('currency') == 'UAH')
+                {{ number_format($project->price_uah) }} <span>грн</span>
+              @elseif(session('currency') == 'RUB')
+                {{ number_format($project->price_rub) }} <span>руб</span>
+              @endif
             </div>
           </div>
         </div>

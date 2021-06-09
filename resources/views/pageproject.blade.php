@@ -53,8 +53,18 @@
             выполнения
           </div>
           <div class="detail-page__right-item_text">
-            <div class="detail-page__right-item_number">250 000</div>
-            <div class="detail-page__right-item_date">руб</div>
+            @if (session('currency') == 'KZT')
+              <div class="detail-page__right-item_number">{{ number_format($project->price_kz) }}</div>
+              <div class="detail-page__right-item_date">тг</div>
+            @elseif(session('currency') == 'UAH')
+              <div class="detail-page__right-item_number">{{ number_format($project->price_uah) }}</div>
+              <div class="detail-page__right-item_date">грн</div>
+            @elseif(session('currency') == 'RUB')
+              <div class="detail-page__right-item_number">{{ number_format($project->price_rub) }}</div>
+              <div class="detail-page__right-item_date">руб</div>
+            @endif
+            
+
           </div>
         </div>
       </div>

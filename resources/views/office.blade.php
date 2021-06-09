@@ -149,7 +149,12 @@
         
       </div>
     </div>
-
+    @php
+      if (session('currency') == null){
+        session(['currency' => 'KZT']);
+      }
+      $currency = session('currency');
+    @endphp
     <div class="office__order">
       <div class="popular__title">На данные категории для Вас действуют такие скидки:</div>
       <div class="popular__wrapper">
@@ -159,7 +164,19 @@
             <div class="card__wrapper-text">
               {{ $p->name }}
             </div>
-            <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> тг</div>
+            <div class="card__wrapper-price"><span>
+              @if ($currency == 'KZT')
+                {{ number_format($p->price_kz) }}
+                </span> тг</div>
+              @endif
+              @if ($currency == 'UAH')
+                {{ number_format($p->price_uah) }}
+                </span> грн</div>
+              @endif
+              @if ($currency == 'RUB')
+                {{ number_format($p->price_ru) }}
+                </span> руб</div>
+              @endif
             <a href="/product/{{ $p->id }}" class="card__wrapper-btn">Подробнее</a>
           </div>
         @endforeach

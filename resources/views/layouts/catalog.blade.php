@@ -8,7 +8,7 @@
 <body>
   <div class="modal-wrapper" id="modal-wrapper">
   </div>
-
+  
   <div class="main">
     <button class="chat">
       <img src="../images/chat.png" alt="">
@@ -60,20 +60,37 @@
                 <img src="../images/card-icon.png" alt="">
               </div>
               <div class="sitebar__wrapper-item_right dropdown">
+                @php
+                  if (session('currency') == null){
+                    session(['currency' => 'KZT']);
+                  }
+                  $currency = session('currency');
+                @endphp
                 <span>
-                  UAH
+                  {{ $currency }}
                 </span>
                 <div class="dropdown-content" style="min-width: 0">
+                  @if ($currency != 'UAH')
                   <p style="font-size: 14px;">
-                    <a href="#">
-                      KZT
+                    <a href="/currency/UAH">
+                      UAH
                     </a>
                   </p>
+                  @endif
+                  @if ($currency != 'RUB')
                   <p style="font-size: 14px;">
-                    <a href="#">
+                    <a href="/currency/RUB">
                       RUB
                     </a>
                   </p>
+                  @endif
+                  @if ($currency != 'KZT')
+                  <p style="font-size: 14px;">
+                    <a href="/currency/KZT">
+                      KZT
+                    </a>
+                  </p>
+                  @endif
                 </div>
               </div>
             </div>
