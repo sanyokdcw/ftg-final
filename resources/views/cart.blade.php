@@ -77,7 +77,7 @@
     
     <div class="cart__wrapper-right">
       <form action="/add-order" method="POST">
-        @csrf
+      @csrf
       @foreach ($cart_items as $item)
         @php
           $product = \App\Models\Product::find($item->product_id);
@@ -94,14 +94,18 @@
           <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
         </div>
         <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> 
-          @if (session('currency') == 'KZT')
+          @if ($currency == 'KZT')
             тг
-          @elseif(session('currency') == 'UAH')
+          @elseif($currency == 'UAH')
             грн
-          @elseif(session('currency') == 'RUB')
+          @elseif($currency == 'RUB')
             руб
           @endif
         </div>
+        <div class="remove-form" style="margin-bottom: auto">
+          <img src="/images/cancel.png" alt="" onclick="sendRemoveForm({{ $product->id }})">
+        </div>
+
       </div>
       @endforeach
       <input type="hidden" name="sum" value="{{ $sum }}">
@@ -169,7 +173,16 @@
     @endforeach
   </div>
 </section>
-
-        
+<form action="/cart-remove" method="POST" id="remove_form">
+  @csrf
+  <input type="hidden" name="product_id" id="product_id" value="">
+</form>
+      
+<script>
+  function sendRemoveForm(id) {
+    document.getElementById('product_id').value = id
+    document.getElementById('remove_form').submit()
+  }
+</script>
 @include('layouts.footer')
 </html>

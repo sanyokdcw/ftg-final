@@ -61,6 +61,7 @@ Route::get('/subcategory/{id}', [ShopController::class, 'card']);
 Route::get('/product/{id}', [ShopController::class, 'card_detail']);
 
 Route::post('/cart-add', [ShopController::class, 'cart_add'])->middleware('auth');
+Route::post('/cart-remove', [ShopController::class, 'cart_remove']);
 
 Route::post('/add-order', [ShopController::class, 'add_order'])->middleware('auth');
 Route::post('/password_change', [UserController::class, 'password_change'])->middleware('auth');

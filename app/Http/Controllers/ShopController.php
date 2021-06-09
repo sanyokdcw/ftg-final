@@ -45,6 +45,12 @@ class ShopController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function cart_remove(Request $request) {
+        Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first()->delete();
+        return redirect()->back();
+    }
+
     public function cart(){
         $cart_items = Cart::where('user_id', Auth::user()->id)->get();
         $sum = 0;
