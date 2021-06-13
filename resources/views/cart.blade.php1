@@ -91,9 +91,12 @@
           <img src="/storage/{{ $product->image }}" alt="">
         </div>
         <div class="cart__wrapper-right_count">
-          <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
+          <button type="button" class="cart__wrapper-right_minus" onclick="countDecrement()">-</button>
+          <div class="cart__wrapper-right_number"><span id="counter">{{ $item->quantity }} </span></div>
+          <button type="button" class="cart__wrapper-right_plus" onclick="countIncrement()">+</button>
         </div>
-        <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> 
+        <input type="hidden" id="item_price" value="{{ $product->price_kz }}">
+        <div class="cart__wrapper-right_subprice title"><span id="item_sum">{{ number_format($product->price_kz * $item->quantity) }}</span> 
           @if ($currency == 'KZT')
             тг
           @elseif($currency == 'UAH')
@@ -109,9 +112,11 @@
       </div>
       @endforeach
       <input type="hidden" name="sum" value="{{ $sum }}">
-      {{-- <div class="cart__wrapper-right_text">
+{{--       
+      <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span>{{ number_format($sum) }} @if ($currency == 'KZT')
+        <span> <span id="sum"> {{ number_format($sum) }} </span> 
+        @if ($currency == 'KZT')
             тг
         @elseif($currency == 'UAH')
             грн
@@ -126,7 +131,7 @@
       </div> --}}
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
-        <span>{{ number_format($sum) }} 
+        <span> <span id="sum"> {{ number_format($sum) }} </span> 
           @if ($currency == 'KZT')
             тг
           @elseif($currency == 'UAH')
@@ -182,6 +187,30 @@
   function sendRemoveForm(id) {
     document.getElementById('product_id').value = id
     document.getElementById('remove_form').submit()
+  }
+ 
+  function countIncrement() {
+    let count = document.getElementById("counter")
+    let newCount = parseInt(count.innerHTML) + 1
+    count.innerHTML = `${newCount}`
+
+    let price = document.getElementById("item_price")
+    let item_sum = document.getElementById("item_sum")
+    let new_sum = parseInt(item_sum.innerHTML.replace(',', '')) + parseInt(price.value)
+    item_sum.innerHTML = `${new_sum}`
+  }
+
+  function countDecrement() {
+    let count = document.getElementById("counter")
+
+    if(parseInt(parseInt(count.innerHTML)) > 1) {
+      let newCount = parseInt(count.innerHTML) - 1
+      count.innerHTML = `${newCount}`
+      let price = document.getElementById("item_price")
+      let item_sum = document.getElementById("item_sum")
+      let new_sum = parseInt(item_sum.innerHTML.replace(',', '')) - parseInt(price.value)
+      item_sum.innerHTML = `${new_sum}`
+    }
   }
 </script>
 @include('layouts.footer')

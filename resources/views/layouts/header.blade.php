@@ -1,6 +1,6 @@
 <div class="content">
   <div class="form">
-    <div class="form__wrapper">
+    <div class="form__wrapper" style="display: none">
       <div class="form__title">ОБРАТНЫЙ ЗВОНОК</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
@@ -24,7 +24,7 @@
       </div>
     </form>
     </div>
-    <div class="form__wrapper">
+    <div class="form__wrapper" style="display: none">
       <div class="form__title">Подобрать систему</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
