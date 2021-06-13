@@ -28,9 +28,7 @@
             <a href="/calc" class="footer__wrapper-link">Калькулятор объема</a>
           </div>
         </div>
-        <div class="footer__wrapper-item" style="
-        width: 20%;
-    ">
+        <div class="footer__wrapper-item" style="width: 20%">
           <div class="footer__wrapper-title">Контакты</div>
           <div class="footer__wrapper-block">
             <div href="#" class="footer__wrapper-link">

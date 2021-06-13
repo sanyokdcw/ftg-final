@@ -10,7 +10,7 @@
   </div>
   
   <div class="main">
-    <button class="chat btn-contact">
+    <button class="chat" onclick="openModelRight('contact2')">
       <img src="../images/chat.png" alt="">
     </button>
     <div class="container">

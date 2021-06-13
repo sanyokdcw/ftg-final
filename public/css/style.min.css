@@ -14,10 +14,9 @@
     }
 }
 
-
 .modal-wrapper {
     width: 100%;
-    height: 100%;
+    height: 500%;
     position: fixed;
     background-color: rgba(0,0,0,0.5);
     display: none;
@@ -3783,7 +3782,7 @@ button {
     }
     .delivery__wrapper-item,
     .methods__wrapper-item {
-        margin: 10px
+        margin: 5px
     }
 }
 @media(max-width: 1550px) {
@@ -4387,7 +4386,8 @@ button {
     }
     .footer__wrapper {
         -ms-flex-wrap: wrap;
-        flex-wrap: wrap
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .footer__wrapper-item,
     .footer__wrapper-text {
@@ -4436,13 +4436,15 @@ button {
 }
 @media(max-width: 900px) {
     .form {
-        padding-top: 0
+        
     }
     .form__wrapper {
-        padding-top: 40px
+        padding-top: 40px;
+        margin: 0;
     }
     .form__close {
-        top: 10px
+        top: 50px;
+        right: 29px;
     }
 }
 @media(max-width: 800px) {
@@ -5000,6 +5002,9 @@ button {
     }
 }
 @media(max-width: 500px) {
+    .search {
+        width: 90% !important;
+    }
     .sertificate__wrapper-text {
         font-size: 16px;
         margin-top: 10px
@@ -5237,7 +5242,10 @@ button {
         font-size: 13px
     }
     .footer__wrapper-item {
-        width: 100%
+        width: 100% !important;
+    }
+    .company__block {
+        flex-direction: column;
     }
     .system__bg {
         height: 275px
@@ -5495,7 +5503,7 @@ button {
     transform: rotate(45deg)
 }
 .calc__symbol{
-    margin: 0 12px;
+    margin: 0 7px;
 }
 .calc__row {
     display: flex;
