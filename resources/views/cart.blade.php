@@ -93,13 +93,15 @@
         <div class="cart__wrapper-right_count">
           <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
         </div>
+        @if ($currency == 'KZT')
         <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> 
-          @if (session('currency') == 'KZT')
-            тг
-          @elseif(session('currency') == 'UAH')
-            грн
-          @elseif(session('currency') == 'RUB')
-            руб
+          тг
+        @elseif($currency == 'UAH')
+          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_uah * $item->quantity) }}</span> 
+          грн
+        @elseif($currency == 'RUB')
+          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_rub * $item->quantity) }}</span> 
+          руб
           @endif
         </div>
       </div>
@@ -107,7 +109,8 @@
       <input type="hidden" name="sum" value="{{ $sum }}">
       <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span>{{ number_format($sum) }} @if ($currency == 'KZT')
+        <span>{{ number_format($sum) }} 
+        @if ($currency == 'KZT')
             тг
         @elseif($currency == 'UAH')
             грн
@@ -154,14 +157,16 @@
       <div class="card__wrapper-text">
         {{ $p->name }}
       </div>
-      <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> 
-        @if ($currency == 'KZT')
-            тг
-        @elseif($currency == 'UAH')
-            грн
-        @elseif($currency == 'RUB')
-            руб
-        @endif
+      @if ($currency == 'KZT')
+        <div class="card__wrapper-price"><span>{{ number_format($p->price_kz) }}</span> 
+        тг
+      @elseif($currency == 'UAH')
+        <div class="card__wrapper-price"><span>{{ number_format($p->price_uah) }}</span> 
+        грн
+      @elseif($currency == 'RUB')
+        <div class="card__wrapper-price"><span>{{ number_format($p->price_rub) }}</span> 
+        руб
+      @endif
       </div>
       <a class="card__wrapper-btn"  href="/product/{{ $p->id }}" style="color: #112468">Подробнее</a>
     </div>

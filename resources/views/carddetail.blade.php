@@ -117,7 +117,15 @@
       <div class="card__wrapper-text">
         {{ $product->name }}
       </div>
-      <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+      @if ($currency == 'KZT')
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+      @elseif($currency == 'UAH')
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_uah) }}</span> тг</div>
+        {{ number_format($product->price_uah) }} грн
+      @elseif($currency == 'RUB')
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_rub) }}</span> тг</div>
+        {{  number_format($product->price_ru) }} руб
+      @endif
       <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
     </div>
     @endforeach
