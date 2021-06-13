@@ -3655,18 +3655,10 @@ button {
     display: none
 }
 
-.sitebar__wrapper-item_right:before {
-    content: "";
-    background-image: url(../images/card-arrow.svg);
-    width: 8px;
-    height: 4px;
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    background-repeat: no-repeat;
+
+
+.arrow {
+    padding-right: 20px;
 }
 
 .bar__item {
@@ -4603,6 +4595,7 @@ button {
     }
 }
 @media(max-width: 700px) {
+
     .team__wrapper-bottom {
         padding: 10px
     }
@@ -5005,8 +4998,20 @@ button {
         line-height: 20px
     }
 }
-@media(max-width: 500px) {
 
+@media(max-width: 700px) {
+    .guarange__wrapper {
+        flex-direction: column;
+    }
+    .cart__wrapper-left_textarea {
+        width: 100% !important;
+    }
+    .product__wrapper-right_block {
+        flex-wrap: wrap !important;
+    }
+    .product__wrapper-right_column {
+        align-items: center !important;
+    }
     .remove-form {
         margin-top: 20px;
     }
@@ -5038,8 +5043,8 @@ button {
     .chat {
         width: 50px;
         height: 50px;
-        right: 5px;
-        bottom: 5px
+        right: 25px;
+        bottom: 10px;
     }
     .chat:before {
         width: 40px;
