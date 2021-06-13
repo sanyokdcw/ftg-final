@@ -70,8 +70,10 @@
         <div class="card-detail__wrapper-right_phone">
           <input type="phone" name="phone">
         </div>
-        <button class="card-detail__wrapper-right_order">Заказать консультацию</button>
-      </div>
+<form action="/request" method="POST">
+	@csrf        
+<button type="submit" class="card-detail__wrapper-right_order">Заказать консультацию</button>
+</form>      </div>
     </div>
   </div>
 </section>
@@ -103,7 +105,7 @@
     <div class="help__wrapper-right">
       <div class="help__wrapper-title">Помощник при выборе систем</div>
       <div class="help__wrapper-text">Мы обязательно Вам поможем!</div>
-      <button class="help__wrapper-btn">Подобрать СИСТЕМУ</button>
+      <a href="/product" class="help__wrapper-btn">Подобрать СИСТЕМУ</a>
     </div>
   </div>
 </section>
@@ -120,11 +122,9 @@
       @if ($currency == 'KZT')
         <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
       @elseif($currency == 'UAH')
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_uah) }}</span> тг</div>
-        {{ number_format($product->price_uah) }} грн
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_uah) }}</span> грн</div>
       @elseif($currency == 'RUB')
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_rub) }}</span> тг</div>
-        {{  number_format($product->price_ru) }} руб
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_rub) }}</span> руб</div>
       @endif
       <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
     </div>

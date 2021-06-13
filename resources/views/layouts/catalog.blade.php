@@ -6,11 +6,11 @@
 </head>
 
 <body>
-  <div class="modal-wrapper" id="modal-wrapper">
+  <div class="modal-wrapper form__close" id="modal-wrapper">
   </div>
   
   <div class="main">
-    <button class="chat">
+    <button class="chat" onclick="openModelRight('contact2')">
       <img src="../images/chat.png" alt="">
     </button>
     <div class="container">
@@ -132,7 +132,7 @@
 
           </ul>
 
-          <a href="#" class="sitebar__link btn-contact">Напишите нам</a>
+          <a href="#" class="sitebar__link btn-contact2" onclick="openModelRight('contact2')">Напишите нам</a>
           <div class="sitebar__social">
             @foreach ($socials as $social)
               <a href="{{ $social->link }}" class="sitebar__social-link">

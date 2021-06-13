@@ -317,7 +317,7 @@
         </span>
         <span class="tab-content" id="Tab2">
 
-            <div class="product__wrapper-right_requirement">
+            <div class="product__wrapper-right_requirement" style="margin-top: 0">
                 <div class="product__wrapper-right_title title">ВАШИ ТРЕБОВАНИЯ К КАЧЕСТВУ очищенной
                     воды:</div>
                 <div class="product__wrapper-right_block">
@@ -355,7 +355,7 @@
         </span>
         <span class="tab-content" id="Tab3">
             <div class="product__wrapper-right_performance">
-            <div class="product__wrapper-right_table">
+            <div class="product__wrapper-right_table" style="margin-top: 0">
                 <div class="product__wrapper-right_row">
                     <div class="product__wrapper-right_column">
                         Показатель

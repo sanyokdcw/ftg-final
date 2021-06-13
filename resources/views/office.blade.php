@@ -72,8 +72,10 @@
         менеджером или оставьте запрос
       </div>
       <div class="btn-wrap" style="width:100%">
+<form action="/request" method="POST">
         <button type="submit" class="office__order-btn">ОСТАВИТЬ ЗАЯВКУ</button>
-      </div>
+</form>      
+</div>
       </form>
 
       <div class="office__order-password">
@@ -137,7 +139,9 @@
             
             <div class="office__order-item_order">
               <div class="office__order-item_name">
+<a href="/product/{{$product->id}}">
                 {{ \App\Models\Product::find($product->product_id)->name }}
+</a>
               </div>
               {{-- <div class="office__order-item_count"><span>1</span> шт.</div> --}}
             </div>

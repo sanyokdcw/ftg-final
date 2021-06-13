@@ -13,7 +13,7 @@
       @foreach ($categories_menu as $category)
       <div class="system__wrapper-item swiper-slide">
         <div class="system__wrapper-item_img">
-          <img src="/storage/{{ $category->image }}" alt="">
+          <img src="/storage/{{ $category->image }}" class="system_img"  alt="">
         </div>
         <div class="system__wrapper-item_text">
           {!! $category->name !!}
@@ -90,7 +90,7 @@
     <div class="help__wrapper-right">
       <div class="help__wrapper-title">Помощник при выборе систем</div>
       <div class="help__wrapper-text">Мы обязательно Вам поможем!</div>
-      <button class="help__wrapper-btn">Подобрать СИСТЕМУ</button>
+      <a href="/product/" class="help__wrapper-btn">Подобрать СИСТЕМУ</a>
     </div>
   </div>
 </section>

@@ -117,7 +117,10 @@
     </section>
     <div class="calc__btn">
         <div class="form__input" style="width: 50%;">
-            <input type="submit" value="Отправить" style="">
+<form action="/request" method="POST">
+@csrf       
+     <input type="submit" value="Отправить" style="">
+</form>
         </div>
     </div>
 

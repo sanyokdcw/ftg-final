@@ -44,7 +44,7 @@
 <section class="estimation">
   <div class="estimation__title">Оцените преимущества партнерства!</div>
   <div class="estimation__text">Присоединяйся</div>
-  <button class="estimation__btn btn-fill">Заполнить форму</button>
+  <button class="estimation__btn btn-fill" onclick="openModelRight('contact2')">Заполнить форму</button>
 </section>
 
         

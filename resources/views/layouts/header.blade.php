@@ -1,6 +1,6 @@
 <div class="content">
   <div class="form">
-    <div class="form__wrapper">
+    <div class="form__wrapper" style="display: none">
       <div class="form__title">ОБРАТНЫЙ ЗВОНОК</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
@@ -24,7 +24,7 @@
       </div>
     </form>
     </div>
-    <div class="form__wrapper">
+    <div class="form__wrapper" style="display: none">
       <div class="form__title">Подобрать систему</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
@@ -79,7 +79,7 @@
             </div>
           </li>
           <li class="menu__list">
-            <a href="/pather" class="menu__list-link">Партнерам</a>
+            <a href="/partner" class="menu__list-link">Партнерам</a>
           </li>
           <li class="menu__list">
             <a href="/contact" class="menu__list-link">Контакты</a>
@@ -89,12 +89,14 @@
       <div class="header__button">
         @if(Auth::check())
           <a href="/logout" style="margin:0">Выйти</a>
+          <a href="/office" class="header__button-user">
+            <img src="../images/user-icon.png" alt="" style="">
+          </a>
         @else 
-          <a href="/login" style="margin:0">Войти</a>
+          <a href="/office" class="header__button-user">
+            <img src="../images/user-icon.png" alt="" style="">
+          </a>
         @endif
-        <a href="/office" class="header__button-user">
-          <img src="../images/user-icon.png" alt="" style="">
-        </a>
         <a href="/search" class="header__button-search">
           <img src="../images/search-icon.png" alt="">
         </a>

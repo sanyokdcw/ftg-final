@@ -14,6 +14,8 @@ use App\Models\Customer;
 use App\Models\Category;
 use App\Models\AboutCompany;
 use App\Models\Guarantee;
+use App\Models\Product;
+
 use App\Blog;
 
 class MainController extends Controller
@@ -57,9 +59,17 @@ class MainController extends Controller
     }
 
     public function blog_show($id) {
-        return view('blog-show', ['blog' => Blog::find($id)]);
+        if(Blog::find($id + 1) == null) {
+            $next_id = Blog::first()->id;
+        }
+        else {
+            $next_id = Blog::find($id + 1)->id;
+        }
+        return view('blog-show', ['blog' => Blog::find($id),
+        'products' => Product::where('id', '!=', 1)->inRandomOrder()->take(3)->get(),
+        'next_id' => $next_id
+        ]);
     }
-
 
     public function guarange() {
         return view('guarange');
