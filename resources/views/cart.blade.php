@@ -95,7 +95,6 @@
         </div>
         @if ($currency == 'KZT')
         <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity) }}</span> 
-<<<<<<< HEAD
           тг
         @elseif($currency == 'UAH')
           <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_uah * $item->quantity) }}</span> 
@@ -103,14 +102,6 @@
         @elseif($currency == 'RUB')
           <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_rub * $item->quantity) }}</span> 
           руб
-=======
-          @if ($currency == 'KZT')
-            тг
-          @elseif($currency == 'UAH')
-            грн
-          @elseif($currency == 'RUB')
-            руб
->>>>>>> 56a5046220ef10455e24019e0ff667fed68e7f55
           @endif
         </div>
         <div class="remove-form" style="margin-bottom: auto">
