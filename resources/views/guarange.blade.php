@@ -43,7 +43,7 @@
 <section class="estimation">
   <div class="estimation__title">Возникли вопросы?</div>
   <div class="estimation__text">Мы обязательно Вам поможем!</div>
-  <button class="estimation__btn btn-contact">Связаться с нами</button>
+  <button class="estimation__btn btn-contact" onclick="openModelRight('contact2')">Связаться с нами</button>
 </section>
 
 

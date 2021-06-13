@@ -34,7 +34,7 @@
 
 
   <div class="bottom-text">
-    <p>{{ $blog->description }}</p>
+    <p style="font-weight: bold;">{{ $blog->description }}</p>
   </div>
 </section>
 

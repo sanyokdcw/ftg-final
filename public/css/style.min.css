@@ -22,6 +22,11 @@
     background-color: rgba(0,0,0,0.5);
     display: none;
 }
+
+.system_img {
+ height:100%;
+object-fit: cover;
+}
 .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -2222,7 +2227,7 @@ button {
     font-size: 20px;
     line-height: 30px;
     color: #222222;
-    min-height: 100px;
+    min-height: 90px;
     max-width: 300px;
     margin: 40px auto 0
 }
@@ -3227,7 +3232,6 @@ button {
     height: 20px;
     position: absolute;
     left: 0;
-    bottom: 0;
     background: url('../images/radio-no.png') 0 0 no-repeat
 }
 .product input[type="radio"]:checked+label:before {
@@ -3276,7 +3280,8 @@ button {
     font-family: "MuseoSansCyrl-700"
 }
 .product__wrapper-right {
-    margin-left: 170px
+    margin-left: 0;
+    width: 100%;
 }
 .product__wrapper-right .product__wrapper-right_title {
     text-transform: uppercase;
@@ -3355,7 +3360,7 @@ button {
 }
 .product__wrapper-right_row:first-child {
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 30px;
     text-transform: uppercase;
     color: #222222;
@@ -3452,7 +3457,7 @@ button {
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: left;
     margin-right: 60px
 }
 .product__wrapper-right_text {
@@ -3500,7 +3505,7 @@ button {
     height: 100%;
     width: 402px;
     background: #ffffff;
-    padding-top: 150px;
+    padding: 80px 35px;
     z-index: 1200;
     -webkit-transform: translateX(200%);
     -ms-transform: translateX(200%);
@@ -3509,7 +3514,7 @@ button {
     -o-transition: all 0.4s;
     transition: all 0.4s
 }
-.form__wrapper {
+.product__wrapper-right .form__wrapper {
     position: relative;
     width: 280px;
     margin: 0 auto;
@@ -3523,7 +3528,8 @@ button {
     text-transform: uppercase;
     color: #474747;
     font-family: "MuseoSansCyrl-900";
-    margin-bottom: 40px
+    margin-bottom: 40px;
+	text-align: center;
 }
 .form__input {
     margin-bottom: 20px;
@@ -4294,7 +4300,7 @@ button {
     }
     .product__wrapper-right {
         margin-left: 0;
-        padding-left: 20px
+        padding-left: 20px;
     }
     .product__wrapper-right_checkbox,
     .product__wrapper-right_block {
@@ -4513,8 +4519,9 @@ button {
         flex-direction: row
     }
     .product__wrapper-right_performance .product__wrapper-right_column {
-        margin-right: 0
-    }
+        margin-right: 0;
+	align-items:left;    
+}
     .office__wrapper {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
