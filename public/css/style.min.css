@@ -4703,6 +4703,9 @@ button {
     }
 }
 @media(max-width: 600px) {
+    .product__wrapper-right_column {
+        font-size: 12px;
+    }
     .property__wrapper-item_top img {
         width: 40px !important
     }
@@ -4774,11 +4777,11 @@ button {
     }
     .product__wrapper-right_row {
         -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column
+        -ms-flex-direction: row;
+        flex-direction: row
     }
     .product__wrapper-right_column {
         width: 100%;
