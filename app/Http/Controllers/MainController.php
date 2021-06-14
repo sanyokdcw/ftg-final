@@ -94,4 +94,13 @@ class MainController extends Controller
                 
         return view('pageproject', ['project'=> $project]);
     }
+
+
+    public function calculator(){
+        return view('calc');
+    }
+
+    public function calculation(Request $request){
+        dd($request->all());
+    }
 }
