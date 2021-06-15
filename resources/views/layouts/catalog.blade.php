@@ -54,12 +54,12 @@
               </a>
             </div>
           </div>
-          <div class="sitebar__wrapper-right">
+          <div class="sitebar__wrapper-right arrow">
             <div class="sitebar__wrapper-item">
               <div class="sitebar__wrapper-item_left">
                 <img src="../images/card-icon.png" alt="">
               </div>
-              <div class="sitebar__wrapper-item_right dropdown">
+              <div class="sitebar__wrapper-item_right dropdown" style="display:flex">
                 @php
                   if (session('currency') == null){
                     session(['currency' => 'KZT']);
@@ -69,6 +69,9 @@
                 <span>
                   {{ $currency }}
                 </span>
+                <div class="arrow" style="display: flex; align-items:center; margin-left: 5px">
+                  <img src="/images/arrow-bottom.png" alt="" style="width: 8px">
+                </div>
                 <div class="dropdown-content" style="min-width: 0">
                   @if ($currency != 'UAH')
                   <p style="font-size: 14px;">
