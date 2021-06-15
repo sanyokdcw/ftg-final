@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::all();
+        $categories = Category::where('available', 1)->get();
         foreach($categories as $category){
             $category->subcategories = $category->subcategories;
         }
@@ -36,9 +36,5 @@ class AppServiceProvider extends ServiceProvider
         View::share('categories', $categories);
         View::share('socials', $socials);
         
-        // if(session('currency') == null){
-            // dump(1);
-            // session(['currency'=>'KZT']);
-        // }
     }
 }
