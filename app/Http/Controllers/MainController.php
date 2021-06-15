@@ -66,7 +66,7 @@ class MainController extends Controller
             $next_id = Blog::find($id + 1)->id;
         }
         return view('blog-show', ['blog' => Blog::find($id),
-        'products' => Product::where('id', '!=', 1)->inRandomOrder()->take(3)->get(),
+        'products' => Product::where('available', 1)->inRandomOrder()->take(3)->get(),
         'next_id' => $next_id
         ]);
     }

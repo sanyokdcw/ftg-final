@@ -16,13 +16,13 @@ class ShopController extends Controller
 {
     public function card($id, Request $request){
         $subcategory = Subcategory::find($id);
-        $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+        $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
         if($request->has('sort')) {
             $sort = $request->sort;
             if($sort == 'down')
-                $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'desc')->get();
+                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'desc')->get();
             if($sort == 'up')
-                $products = Product::where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
 
             return view('card', compact('subcategory', 'products', 'sort'));
         }
@@ -33,7 +33,7 @@ class ShopController extends Controller
 
     public function card_detail($id){
         $product = Product::find($id);
-        $products = Product::where('id', '!=', $id)->inRandomOrder()->take(3)->get();
+        $products = Product::where('available', 1)->where('id', '!=', $id)->inRandomOrder()->take(3)->get();
         return view('carddetail', compact('product', 'products'));
     }
 
@@ -60,7 +60,7 @@ class ShopController extends Controller
         
         }
  
-        $popular = Product::inRandomOrder()->take(3)->get();
+        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
 
         return view('cart', compact('cart_items', 'sum', 'popular'));
     }
@@ -86,7 +86,7 @@ class ShopController extends Controller
     
     public function office(){
         $orders = Order::where('user_id', Auth::user()->id)->get();
-        $popular = Product::inRandomOrder()->take(3)->get();
+        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
 
         foreach($orders as $order){
             $order->products = $order->order_products;
