@@ -39,7 +39,6 @@ class ShopController extends Controller
 
     public function cart_add(Request $request) {
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->get();
-        // dd($cart[0]);
         if($cart->isEmpty() == false){
             $cart[0]->update(['quantity' => $cart[0]->quantity + $request->quantity]);
         }
