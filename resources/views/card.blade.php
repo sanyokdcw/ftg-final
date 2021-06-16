@@ -65,7 +65,7 @@
           @elseif($currency == 'UAH')
             {{ number_format($product->price_uah,0,","," ") }}</span> грн
           @elseif($currency == 'RUB')
-            {{ number_format($product->price_rub,0,","," ") }}</span> руб
+            {{ number_format($product->price_ru,0,","," ") }}</span> руб
           @endif
         </div>
         <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
