@@ -125,7 +125,7 @@
               Заказ № {{ $order->id }}
             </div>
             <div class="office__order-item_tbody">
-              {{ $order->sum }}
+              {{number_format($order->sum,0,","," ")}}
             </div>
             <div class="office__order-item_tbody">
               {{ $order->status }}

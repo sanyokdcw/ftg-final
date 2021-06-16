@@ -20,7 +20,7 @@
         {!! setting('contacts.address') !!}
       </div>
       <div class="contact__wrapper-title">Телефон:</div>
-      <a href="tel:+79016543210" class="contact__wrapper-phone title">{{ setting('contacts.telephone') }}</a>
+      <a style="font-size:15px;"  href="tel:+79016543210" class="contact__wrapper-phone title">{{ setting('contacts.telephone') }}</a>
       <div class="contact__wrapper-title">EMAIL:</div>
       <a href="mailto:{{ setting('contacts.email') }}" class="contact__wrapper-email">{{ setting('contacts.email') }}</a>
       <div class="contact__wrapper-title">РЕЖИМ РАБОТЫ:</div>

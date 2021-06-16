@@ -67,7 +67,7 @@
       </div>
       <div class="news__wrapper-item_bottom">
         <div class="news__wrapper-item_title">
-          {{ $blog->title }}
+          {{ $blog->name }}
         </div>
         <div class="news__wrapper-item_text">
           {{ $blog->description }}

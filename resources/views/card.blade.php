@@ -61,11 +61,11 @@
         </div>
         <div class="card__wrapper-price"><span>
           @if ($currency == 'KZT')
-            {{ number_format($product->price_kz) }}</span> тг
+            {{ number_format($product->price_kz,0,","," ") }}</span> тг
           @elseif($currency == 'UAH')
-            {{ number_format($product->price_uah) }}</span> грн
+            {{ number_format($product->price_uah,0,","," ") }}</span> грн
           @elseif($currency == 'RUB')
-            {{ number_format($product->price_rub) }}</span> руб
+            {{ number_format($product->price_rub,0,","," ") }}</span> руб
           @endif
         </div>
         <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
