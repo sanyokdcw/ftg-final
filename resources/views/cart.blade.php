@@ -91,30 +91,35 @@
           <img src="/storage/{{ $product->image }}" alt="">
         </div>
         <div class="cart__wrapper-right_count">
-          <div class="cart__wrapper-right_number">Количество - {{ $item->quantity }}</div>
+          <button type="button" class="cart__wrapper-right_minus" onclick="countDecrement{{ $loop->index }}()">-</button>
+          <div class="cart__wrapper-right_number"><span id="counter{{ $loop->index }}">{{ $item->quantity }} </span></div>
+          <button type="button" class="cart__wrapper-right_plus" onclick="countIncrement{{ $loop->index }}()">+</button>
         </div>
+        <input type="hidden" id="item_price{{ $loop->index }}" value="{{ $product->price_kz }}">
         @if ($currency == 'KZT')
-        <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_kz * $item->quantity,0,","," ") }}</span> 
+        <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_kz * $item->quantity,0,","," ") }}</span> 
           тг
         @elseif($currency == 'UAH')
-          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_uah * $item->quantity,0,","," ") }}</span> 
+          <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_uah * $item->quantity,0,","," ") }}</span> 
           грн
         @elseif($currency == 'RUB')
-          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_ru * $item->quantity,0,","," "
+          <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_ru * $item->quantity,0,","," "
 ) }}</span> 
           руб
           @endif
-        </div>
+          </div>
         <div class="remove-form" style="margin-bottom: auto">
           <img src="/images/cancel.png" alt="" onclick="sendRemoveForm({{ $product->id }})">
         </div>
 
       </div>
       @endforeach
-      <input type="hidden" name="sum" value="{{ $sum }}">
-      {{-- <div class="cart__wrapper-right_text">
+
+      <input type="hidden" name="sum" id="sum_hidden" value="{{ $sum }}">
+{{--       
+      <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span>{{ number_format($sum,0,","," ") }} 
+        <span> <span id="sum"> {{ number_format($sum) }} </span> 
         @if ($currency == 'KZT')
             тг
         @elseif($currency == 'UAH')
@@ -130,7 +135,7 @@
       </div> --}}
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
-        <span>{{ number_format($sum,0,","," ") }} 
+        <span> <span id="sum"> {{ number_format($sum,0,","," ") }} </span> 
           @if ($currency == 'KZT')
             тг
           @elseif($currency == 'UAH')
@@ -162,16 +167,14 @@
       <div class="card__wrapper-text">
         {{ $p->name }}
       </div>
-      @if ($currency == 'KZT')
-        <div class="card__wrapper-price"><span>{{ number_format($p->price_kz,0,","," ") }}</span> 
-        тг
-      @elseif($currency == 'UAH')
-        <div class="card__wrapper-price"><span>{{ number_format($p->price_uah,0,","," ") }}</span> 
-        грн
-      @elseif($currency == 'RUB')
-        <div class="card__wrapper-price"><span>{{ number_format($p->price_ru,0,","," ") }}</span> 
-        руб
-      @endif
+      <div class="card__wrapper-price"><span>{{ number_format($p->price_kz,0,","," ") }}</span> 
+        @if ($currency == 'KZT')
+            тг
+        @elseif($currency == 'UAH')
+            грн
+        @elseif($currency == 'RUB')
+            руб
+        @endif
       </div>
       <a class="card__wrapper-btn"  href="/product/{{ $p->id }}" style="color: #112468">Подробнее</a>
     </div>
@@ -188,6 +191,45 @@
   function sendRemoveForm(id) {
     document.getElementById('product_id').value = id
     document.getElementById('remove_form').submit()
+  }
+  @foreach($cart_items as $item)
+  function countIncrement{{ $loop->index }}() {
+    let count = document.getElementById("counter{{ $loop->index }}")
+    let newCount = parseInt(count.innerHTML) + 1
+    count.innerHTML = `${newCount}`
+
+    let price = document.getElementById("item_price{{ $loop->index }}")
+    let item_sum = document.getElementById("item_sum{{ $loop->index }}")
+    let new_sum = parseInt(item_sum.innerHTML.replace(' ', '')) + parseInt(price.value)
+    item_sum.innerHTML = `${new_sum}`
+    countSum()
+  }
+
+  function countDecrement{{ $loop->index }}() {
+    let count = document.getElementById("counter{{ $loop->index }}")
+
+    if(parseInt(parseInt(count.innerHTML)) > 1) {
+      let newCount = parseInt(count.innerHTML) - 1
+      count.innerHTML = `${newCount}`
+      let price = document.getElementById("item_price{{ $loop->index }}")
+      let item_sum = document.getElementById("item_sum{{ $loop->index }}")
+      let new_sum = parseInt(item_sum.innerHTML.replace(' ', '')) - parseInt(price.value)
+      item_sum.innerHTML = `${new_sum}`
+      countSum()
+    }
+  }
+  @endforeach
+  function countSum() {
+    let prices = document.querySelectorAll('.item_sum')
+    let sum = 0
+    let sumHTML = document.getElementById('sum')
+    for (let i = 0; i < prices.length; i++) {
+      const element = prices[i];
+      sum +=  parseInt(element.innerHTML.replace(' ', ''))
+    }
+    console.log(sum)
+    document.getElementById('sum_hidden').value = sum
+    sumHTML.innerHTML = `${sum}`
   }
 </script>
 @include('layouts.footer')
