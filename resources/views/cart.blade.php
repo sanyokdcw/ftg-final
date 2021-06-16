@@ -100,7 +100,7 @@
           <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_uah * $item->quantity,0,","," ") }}</span> 
           грн
         @elseif($currency == 'RUB')
-          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_rub * $item->quantity,0,","," "
+          <div class="cart__wrapper-right_subprice title"><span>{{ number_format($product->price_ru * $item->quantity,0,","," "
 ) }}</span> 
           руб
           @endif
@@ -169,7 +169,7 @@
         <div class="card__wrapper-price"><span>{{ number_format($p->price_uah,0,","," ") }}</span> 
         грн
       @elseif($currency == 'RUB')
-        <div class="card__wrapper-price"><span>{{ number_format($p->price_rub,0,","," ") }}</span> 
+        <div class="card__wrapper-price"><span>{{ number_format($p->price_ru,0,","," ") }}</span> 
         руб
       @endif
       </div>

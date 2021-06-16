@@ -38,11 +38,18 @@ class ShopController extends Controller
     }
 
     public function cart_add(Request $request) {
-        Cart::create([
-            'user_id'=>Auth::user()->id,
-            'product_id'=>$request->product_id,
-            'quantity'=>$request->quantity,
-        ]);
+        $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->get();
+        // dd($cart);
+        // if($cart->isEmpty() == false){
+            Cart::create([
+                'user_id'=>Auth::user()->id,
+                'product_id'=>$request->product_id,
+                'quantity'=>$request->quantity,
+            ]);
+        // }
+        // else{
+            // $cart->update = (['quantity' => $cart->quantity+1]);
+        // }
         return redirect()->back();
     }
 
@@ -51,12 +58,19 @@ class ShopController extends Controller
         return redirect()->back();
     }
 
-    public function cart(){
+    public function cart(Request $request){
         $cart_items = Cart::where('user_id', Auth::user()->id)->get();
         $sum = 0;
         foreach($cart_items as $item) {
-        $product = \App\Models\Product::find($item->product_id);
-        	$sum+= $product->price_kz * $item->quantity;
+            $product = Product::find($item->product_id);
+            if(session('currency') == 'UAH'){
+                $price = $product->price_uah;
+            }else if(session('currency') == 'RUB'){
+                $price = $product->price_ru;
+            }else{
+                $price = $product->price_kz;
+            }
+        	$sum+= $price * $item->quantity;
         }
  
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
@@ -85,7 +99,7 @@ class ShopController extends Controller
     }
     
     public function office(){
-        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
 
         foreach($orders as $order){
