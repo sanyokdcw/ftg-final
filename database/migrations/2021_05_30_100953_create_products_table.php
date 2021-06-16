@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('price_ru');
             $table->integer('price_kz');
             $table->integer('price_uah');
+            $table->integer('sale');
             $table->text('description');
             $table->text('characteristics');
             $table->text('documentation');

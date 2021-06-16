@@ -57,7 +57,6 @@ class ShopController extends Controller
         foreach($cart_items as $item) {
         $product = \App\Models\Product::find($item->product_id);
         	$sum+= $product->price_kz * $item->quantity;
-        
         }
  
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
@@ -71,13 +70,14 @@ class ShopController extends Controller
             'status' => 'В обработке'
         ]);
         $products = $request->products;
-        foreach($products as $product){
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        for($i = 0; $i <= count($products)-1; $i++){
             OrderProduct::Create([
-                'product_id'=>$product,
+                'product_id'=>$products[$i],
                 'order_id'=>$order->id,
+                'quantity'=>$carts[$i]->quantity,
             ]);
         }
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
         foreach($carts as $cart){
             $cart->delete();
         }

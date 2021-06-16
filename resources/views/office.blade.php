@@ -139,9 +139,11 @@
             
             <div class="office__order-item_order">
               <div class="office__order-item_name">
-<a href="/product/{{$product->id}}">
-                {{ \App\Models\Product::find($product->product_id)->name }}
-</a>
+                <a href="/product/{{$product->id}}">
+                  {{ \App\Models\Product::find($product->product_id)->name }} @if($product->quantity > 1)
+                       - {{ $product->quantity }} ШТ
+                  @endif
+                </a>
               </div>
               {{-- <div class="office__order-item_count"><span>1</span> шт.</div> --}}
             </div>
