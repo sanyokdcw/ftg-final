@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $categories = Category::where('available', 1)->get();
         foreach($categories as $category){
-            $category->subcategories = $category->subcategories;
+            $category->subcategories = Subcategory::where('category_id', $category->id)->where('available', 1)->get();
         }
         $socials = Social::all();
         View::share('categories', $categories);
