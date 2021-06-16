@@ -41,7 +41,7 @@ class ShopController extends Controller
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->get();
         // dd($cart[0]);
         if($cart->isEmpty() == false){
-            $cart[0]->update = (['quantity' => $cart[0]->quantity + $request->quantity]);
+            $cart[0]->update(['quantity' => $cart[0]->quantity + $request->quantity]);
         }
         else{
             Cart::create([
