@@ -4,6 +4,7 @@
     font-weight: 400;
     font-style: normal
 }
+
 :root {
     --swiper-theme-color: #007aff
 }
@@ -28,16 +29,17 @@
 
 .modal-wrapper {
     width: 100%;
-    height: 500%;
+    height: 1000%;
     position: fixed;
     background-color: rgba(0,0,0,0.5);
     display: none;
 }
 
 .system_img {
- height:100%;
-object-fit: cover;
+    height:100%;
+    object-fit: cover;
 }
+
 .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -3884,7 +3886,7 @@ font-size: 18px !important;
     }
     .footer__top,
     .footer__bottom {
-        padding: 20px
+        padding: 20px 0
     }
     .help__wrapper img {
         width: 110%;
