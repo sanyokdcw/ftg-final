@@ -98,7 +98,9 @@
           </div>
           <div class="project__wrapper-text" id="result{{ $loop->index }}">
             {!! $project->result !!}
+
           </div>
+<div class="project__wrapper-block_bg"></div>
         </div>
         <div class="blog__button">
           <a href="/project/{{ $project->id }}" class="blog__button-link">Читать далее</a>

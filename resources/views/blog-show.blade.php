@@ -67,7 +67,7 @@
         <div class="card__wrapper-text">
           {{ $product->name }}
         </div>
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz,0,","," ") }}</span> тг</div>
         <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
       </div>
     @endforeach

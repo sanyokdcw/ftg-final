@@ -4,6 +4,7 @@
     font-weight: 400;
     font-style: normal
 }
+
 :root {
     --swiper-theme-color: #007aff
 }
@@ -14,22 +15,31 @@
     }
 }
 
+.rotateimg180 {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 .remove-form {
     cursor: pointer;
 }
 
 .modal-wrapper {
     width: 100%;
-    height: 500%;
+    height: 1000%;
     position: fixed;
     background-color: rgba(0,0,0,0.5);
     display: none;
 }
 
 .system_img {
- height:100%;
-object-fit: cover;
+    height:100%;
+    object-fit: cover;
 }
+
 .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -917,6 +927,13 @@ button {
     display: -ms-flexbox;
     display: flex
 }
+.sitebar__drowdown-item_open:before {
+     -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 .sitebar__drowdown-item_active:before {
     content: "";
     background-image: url('../images/arrow-bottom.png');
@@ -1013,7 +1030,7 @@ button {
     left: 0
 }
 .header .menu__list-submenu a {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 38px;
     letter-spacing: 0.16px;
     color: #39374d;
@@ -1731,13 +1748,16 @@ button {
     font-family: "MuseoSansCyrl-900"
 }
 .team__wrapper-link {
-    margin-top: 30px;
+    margin-top: 25px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center
+}
+.team {
+margin-left:50px;
 }
 .team__wrapper-link img {
     margin-right: 17px
@@ -1758,6 +1778,7 @@ button {
 }
 .project__wrapper-open .project__wrapper-block_bg {
     background: inherit
+
 }
 .project__wrapper-left {
     max-width: 500px;
@@ -1787,8 +1808,8 @@ button {
     cursor: pointer
 }
 .project__wrapper-img {
-    width: 140px;
-    height: 100px;
+    width: 145px;
+    height: 120px;
     border-radius: 6px;
     border: 0.5px solid #ffffff;
     background-size: cover;
@@ -1863,7 +1884,7 @@ button {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 100px;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(60.87%, #fff));
     background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, #fff 60.87%);
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 60.87%)
@@ -2085,7 +2106,8 @@ button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+font-size: 18px !important;
 }
 .guarange__wrapper-title img {
     margin-right: 30px
@@ -3864,7 +3886,7 @@ button {
     }
     .footer__top,
     .footer__bottom {
-        padding: 20px
+        padding: 20px 0
     }
     .help__wrapper img {
         width: 110%;

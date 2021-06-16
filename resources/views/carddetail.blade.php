@@ -36,11 +36,11 @@
       </div>
       <div class="card-detail__wrapper-right_price">
         @if ($currency == 'KZT')
-          {{  number_format($product->price_kz) }} тенге
+          {{  number_format($product->price_kz,0,","," ") }} тенге
         @elseif($currency == 'UAH')
-          {{  number_format($product->price_uah) }} гривен
+          {{  number_format($product->price_uah,0,","," ") }} гривен
         @elseif($currency == 'RUB')
-          {{  number_format($product->price_ru) }} рублей
+          {{  number_format($product->price_ru,0,","," ") }} рублей
         @endif
         
       </div>
@@ -52,11 +52,11 @@
         </div>
         <div class="card-detail__wrapper-right_subprice title">
           @if ($currency == 'KZT')
-            {{ number_format($product->price_kz) }} тг
+            {{ number_format($product->price_kz,0,","," ") }} тг
           @elseif($currency == 'UAH')
-            {{ number_format($product->price_uah) }} грн
+            {{ number_format($product->price_uah,0,","," ") }} грн
           @elseif($currency == 'RUB')
-            {{  number_format($product->price_ru) }} руб
+            {{  number_format($product->price_ru,0,","," ") }} руб
           @endif
         </div>
         <form action="/cart-add" method="POST">
@@ -120,11 +120,11 @@
         {{ $product->name }}
       </div>
       @if ($currency == 'KZT')
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz) }}</span> тг</div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_kz,0,","," ") }}</span> тг</div>
       @elseif($currency == 'UAH')
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_uah) }}</span> грн</div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_uah,0,","," ") }}</span> грн</div>
       @elseif($currency == 'RUB')
-        <div class="card__wrapper-price"><span>{{ number_format($product->price_rub) }}</span> руб</div>
+        <div class="card__wrapper-price"><span>{{ number_format($product->price_rub,0,","," ") }}</span> руб</div>
       @endif
       <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
     </div>
