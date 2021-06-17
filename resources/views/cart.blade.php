@@ -200,8 +200,8 @@
 
     let price = document.getElementById("item_price{{ $loop->index }}")
     let item_sum = document.getElementById("item_sum{{ $loop->index }}")
-    let new_sum = parseInt(item_sum.innerHTML.replace(' ', '')) + parseInt(price.value)
-    item_sum.innerHTML = `${new_sum}`
+    let new_sum = parseInt(item_sum.innerHTML.replace(/\s/g, '')) + parseInt(price.value)
+    item_sum.innerHTML = `${addSpaces(new_sum)}`
     countSum()
   }
 
@@ -213,8 +213,8 @@
       count.innerHTML = `${newCount}`
       let price = document.getElementById("item_price{{ $loop->index }}")
       let item_sum = document.getElementById("item_sum{{ $loop->index }}")
-      let new_sum = parseInt(item_sum.innerHTML.replace(' ', '')) - parseInt(price.value)
-      item_sum.innerHTML = `${new_sum}`
+      let new_sum = parseInt(item_sum.innerHTML.replace(/\s/g, '')) - parseInt(price.value)
+      item_sum.innerHTML = `${addSpaces(new_sum)}`
       countSum()
     }
   }
@@ -225,12 +225,24 @@
     let sumHTML = document.getElementById('sum')
     for (let i = 0; i < prices.length; i++) {
       const element = prices[i];
-      sum +=  parseInt(element.innerHTML.replace(' ', ''))
-    }
+      sum +=  parseInt(element.innerHTML.replace(/\s/g, ''))    
+}
     console.log(sum)
     document.getElementById('sum_hidden').value = sum
-    sumHTML.innerHTML = `${sum}`
+    sumHTML.innerHTML = `${addSpaces(sum)}`
   }
+
+function addSpaces(n) {
+let num = n.toString()
+let result = ""
+while (num.length > 0) // Loop through string
+{
+    result = result + " " + num.substring(0,3); // Insert space character
+    num = num.substring(3);  // Trim String
+}
+
+return result
+}
 </script>
 @include('layouts.footer')
 </html>

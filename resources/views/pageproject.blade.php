@@ -79,23 +79,61 @@
 
 <section class="specifications">
   <div class="specifications__top">
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" style="cursor:pointer; color: #78b9eb;" id="Link1" onclick="changeTab(1)">
       Задача
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" style="cursor:pointer;" id="Link2" onclick="changeTab(2)">
       Решение
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" style="cursor:pointer;" id="Link3" onclick="changeTab(3)">
       Итог
     </div>
   </div>
   <div class="specifications__bottom">
-    <div class="specifications__bottom-item">
+    <div class="specifications__bottom-item" style="display:block" id="Tab1">
       {!! $project->task !!}
     </div>
+    <div class="specifications__bottom-item" style="display:none" id="Tab2">
+      {!! $project->solution !!}
+    </div>
+    <div class="specifications__bottom-item" style="display:none" id="Tab3">
+      {!! $project->result !!}
+    </div>
+
   </div>
 </section>
 
+<script> 
+    function changeTab(tab) {
+           if(tab === 1) {
+             document.getElementById('Tab1').style.display = "block"
+             document.getElementById('Tab2').style.display = "none"
+             document.getElementById('Tab3').style.display = "none"
+
+             document.getElementById('Link1').style.color = "#78b9eb"
+             document.getElementById('Link2').style.color = "black"
+             document.getElementById('Link3').style.color = "black"
+
+           }
+  if(tab === 2) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "block"
+    document.getElementById('Tab3').style.display = "none"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "#78b9eb"
+    document.getElementById('Link3').style.color = "black"
+  }
+  if(tab === 3) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "none"
+    document.getElementById('Tab3').style.display = "block"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "black"
+    document.getElementById('Link3').style.color = "#78b9eb"
+  }
+}
+
+</script>
 
 @include('layouts.footer')
 </html>
