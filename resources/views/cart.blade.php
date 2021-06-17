@@ -167,7 +167,11 @@
         <div class="cart__wrapper-right_input">
           <input type="text" name="phone">
         </div>
-        <button class="cart__wrapper-right_order">Заказать консультацию</button>
+
+        <form action="/request" method="POST">
+          @csrf        
+        <button type="submit" class="card-detail__wrapper-right_order">Заказать консультацию</button>
+        </form>  
       </div>
     </div>
   </div>
@@ -202,7 +206,18 @@
   @csrf
   <input type="hidden" name="product_id" id="product_id" value="">
 </form>
-      
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+	
+Swal.fire(
+  'Ваша заявка принята',
+  'Мы вам перезвоним',
+  'success'
+)
+</script>
+@endif
 <script>
   function sendRemoveForm(id) {
     document.getElementById('product_id').value = id
