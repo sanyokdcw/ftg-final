@@ -60,6 +60,8 @@ class ShopController extends Controller
     public function cart(Request $request){
         $cart_items = Cart::where('user_id', Auth::user()->id)->get();
         $sum = 0;
+        $discount = 0;
+        $discountSum = 0;
         foreach($cart_items as $item) {
             $product = Product::find($item->product_id);
             if(session('currency') == 'UAH'){
@@ -70,11 +72,13 @@ class ShopController extends Controller
                 $price = $product->price_kz;
             }
         	$sum+= $price * $item->quantity;
+            $discount += $product->sale;
+            $discountSum += $product->price_kz - ( $product->price_kz * ($product->sale / 100));
         }
- 
+
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
 
-        return view('cart', compact('cart_items', 'sum', 'popular'));
+        return view('cart', compact('cart_items', 'sum', 'popular', 'discount', 'discountSum'));
     }
     public function add_order(Request $request){
         $order = Order::Create([

@@ -82,6 +82,15 @@
         @php
           $product = \App\Models\Product::find($item->product_id);
         @endphp
+
+          @php
+          if($product->sale != 0) {
+            $product->price_kz = $product->price_kz - ( $product->price_kz * ($product->sale / 100));   
+           $product->price_ru = $product->price_ru - ( $product->price_ru * ($product->sale / 100));   
+           $product->price_uah = $product->price_uah - ( $product->price_uah * ($product->sale / 100));   
+
+          }
+          @endphp
         <input type="hidden" name="products[]" value="{{ $product->id }}">
       <div class="cart__wrapper-right_title title">
         {{ $product->name }}
@@ -96,15 +105,19 @@
           <button type="button" class="cart__wrapper-right_plus" onclick="countIncrement{{ $loop->index }}()">+</button>
         </div>
         <input type="hidden" id="item_price{{ $loop->index }}" value="{{ $product->price_kz }}">
+
+
+
         @if ($currency == 'KZT')
-        <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_kz * $item->quantity,0,","," ") }}</span> 
+        <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">
+
+          {{ number_format(($product->price_kz) * $item->quantity,0,","," ") }}</span> 
           тг
         @elseif($currency == 'UAH')
           <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_uah * $item->quantity,0,","," ") }}</span> 
           грн
         @elseif($currency == 'RUB')
-          <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_ru * $item->quantity,0,","," "
-) }}</span> 
+          <div class="cart__wrapper-right_subprice title"><span class="item_sum" id="item_sum{{ $loop->index }}">{{ number_format($product->price_ru * $item->quantity,0,","," ") }}</span> 
           руб
           @endif
           </div>
@@ -113,13 +126,19 @@
         </div>
 
       </div>
+      @if($product->sale != 0)
+      <div class="cart__wrapper-right_text">
+        <div>Скидка:</div>
+        <span>{{ $product->sale }}%</span>
+      </div>
+      @endif
       @endforeach
 
       <input type="hidden" name="sum" id="sum_hidden" value="{{ $sum }}">
-{{--       
+     
       <div class="cart__wrapper-right_text">
         <div>Стоимость товаров:</div>
-        <span> <span id="sum"> {{ number_format($sum) }} </span> 
+        <span> <span id=""> {{ number_format($sum,0,","," ") }} </span> 
         @if ($currency == 'KZT')
             тг
         @elseif($currency == 'UAH')
@@ -128,11 +147,8 @@
             руб
         @endif
         </span>
-      </div> --}}
-      {{-- <div class="cart__wrapper-right_text">
-        <div>3книжка:</div>
-        <span>-</span>
-      </div> --}}
+      </div> 
+
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
         <span> <span id="sum"> {{ number_format($sum,0,","," ") }} </span> 
@@ -200,7 +216,9 @@
 
     let price = document.getElementById("item_price{{ $loop->index }}")
     let item_sum = document.getElementById("item_sum{{ $loop->index }}")
-    let new_sum = parseInt(item_sum.innerHTML.replace(/\s/g, '')) + parseInt(price.value)
+    item_sum_value = item_sum.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '');
+
+    let new_sum = parseInt(item_sum_value) + parseInt(price.value)
     item_sum.innerHTML = `${addSpaces(new_sum)}`
     countSum()
   }
@@ -213,36 +231,37 @@
       count.innerHTML = `${newCount}`
       let price = document.getElementById("item_price{{ $loop->index }}")
       let item_sum = document.getElementById("item_sum{{ $loop->index }}")
-      let new_sum = parseInt(item_sum.innerHTML.replace(/\s/g, '')) - parseInt(price.value)
+      item_sum_value = item_sum.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '');
+
+      let new_sum = parseInt(item_sum_value) - parseInt(price.value)
       item_sum.innerHTML = `${addSpaces(new_sum)}`
       countSum()
     }
   }
   @endforeach
+
   function countSum() {
     let prices = document.querySelectorAll('.item_sum')
     let sum = 0
     let sumHTML = document.getElementById('sum')
+    let sumDiscount = document.getElementById('sum_discount')
     for (let i = 0; i < prices.length; i++) {
-      const element = prices[i];
-      sum +=  parseInt(element.innerHTML.replace(/\s/g, ''))    
-}
-    console.log(sum)
+      let element = prices[i]
+      element = element.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '');
+      sum +=  parseInt(element)
+  }
+
     document.getElementById('sum_hidden').value = sum
     sumHTML.innerHTML = `${addSpaces(sum)}`
   }
 
 function addSpaces(n) {
-let num = n.toString()
-let result = ""
-while (num.length > 0) // Loop through string
-{
-    result = result + " " + num.substring(0,3); // Insert space character
-    num = num.substring(3);  // Trim String
+  let num = Number(n)
+  let result = new Intl.NumberFormat().format(num)
+  
+  return result.toString()
 }
 
-return result
-}
 </script>
 @include('layouts.footer')
 </html>
