@@ -71,7 +71,7 @@ Route::post('/calculator/calculation', [MainController::class, 'calculation']);
 
 
 Route::post('/request', function() {
-    return redirect()->back();
+    return redirect()->back()->with('success', 'success');
 });
 
 

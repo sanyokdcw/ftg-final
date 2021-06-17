@@ -37,7 +37,8 @@
 
 .system_img {
     height:100%;
-    object-fit: cover;
+width:100%;
+    object-fit: contain;
 }
 
 .swiper-container {
@@ -1052,7 +1053,7 @@ button {
     color: #474747;
     padding-right: 15px;
     position: relative;
-    font-weight: 700
+    font-weight: 500
 }
 .header .menu__list-link_active:before {
     content: "";
@@ -2018,14 +2019,14 @@ margin-left:50px;
     margin-bottom: 25px;
     max-width: 230px
 }
+
 .delivery__wrapper-text {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 25px;
     max-width: 260px;
     margin-bottom: 30px
 }
-.delivery__wrapper-text span {
-    font-family: "MuseoSansCyrl-900"
+.delivery__wrapper-text span {    font-family: "MuseoSansCyrl-900"
 }
 .methods .delivery__subtitle {
     margin-top: 60px

@@ -80,20 +80,29 @@
 
 <section class="specifications">
   <div class="specifications__top">
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link1"  onclick="changeTab(1)" style="cursor: pointer; color: rgb(120, 185, 235);">
       Описание
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link2"  onclick="changeTab(2)" style="cursor:pointer">
       Характеристики
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link3"  onclick="changeTab(3)" style="cursor:pointer">
       Документация
     </div>
   </div>
   <div class="specifications__bottom">
-    <div class="specifications__bottom-item">
+    <div class="specifications__bottom-item" id="Tab1" style="display: block;">
     {!! strip_tags($product->description) !!}
+	
     </div>
+    <div class="specifications__bottom-item" id="Tab2" style="display: none;">
+    {!! strip_tags($product->characteristics) !!}
+    </div>
+
+    <div class="specifications__bottom-item" id="Tab3" style="display: none;">
+    {!! strip_tags($product->documentation) !!}
+    </div>
+
   </div>
 </section>
 
@@ -151,5 +160,50 @@ function countDecrement() {
 }
 
 </script>
+<script> 
+    function changeTab(tab) {
+           if(tab === 1) {
+             document.getElementById('Tab1').style.display = "block"
+             document.getElementById('Tab2').style.display = "none"
+             document.getElementById('Tab3').style.display = "none"
+
+             document.getElementById('Link1').style.color = "#78b9eb"
+             document.getElementById('Link2').style.color = "black"
+             document.getElementById('Link3').style.color = "black"
+
+           }
+  if(tab === 2) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "block"
+    document.getElementById('Tab3').style.display = "none"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "#78b9eb"
+    document.getElementById('Link3').style.color = "black"
+  }
+  if(tab === 3) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "none"
+    document.getElementById('Tab3').style.display = "block"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "black"
+    document.getElementById('Link3').style.color = "#78b9eb"
+  }
+}
+
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+	
+Swal.fire(
+  'Ваша заявка принята',
+  'Мы вам перезвоним',
+  'success'
+)
+</script>
+@endif
+
+
 @include('layouts.footer')
 </html>
