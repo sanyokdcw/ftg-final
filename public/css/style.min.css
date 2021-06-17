@@ -3813,13 +3813,13 @@ font-size: 18px !important;
         margin-top: 5px
     }
     .property__wrapper {
-        /* padding: 25px 17px */
+        padding: 81px 30px;
     }
     .header .menu__list {
         margin-right: 65px
     }
     .property__wrapper-item {
-        width: 47%;
+        width: 19%;
         max-width: 100%
     }
     .contact__wrapper {
