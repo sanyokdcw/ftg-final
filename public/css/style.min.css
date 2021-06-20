@@ -38,6 +38,7 @@
 .system_img {
     height:100%;
 width:100%;
+max-width: 200px;
     object-fit: contain;
 }
 
@@ -1104,7 +1105,7 @@ button {
     height: 380px
 }
 .system__wrapper {
-    margin-top: 80px;
+    margin-top: 70px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2040,11 +2041,10 @@ margin-left:50px;
     justify-content: space-between
 }
 .methods__wrapper-item {
-    width: 420px;
-    height: 470px;
+	   height: 470px;
     background: #f7f9fa;
     border-radius: 6px;
-    padding: 70px
+    padding: 50px
 }
 .methods__wrapper-title {
     display: -webkit-box;
@@ -3306,7 +3306,7 @@ font-size: 18px !important;
     font-family: "MuseoSansCyrl-700"
 }
 .product__wrapper-right {
-    margin-left: 0;
+    margin-left:150px;
     width: 100%;
 }
 .product__wrapper-right .product__wrapper-right_title {
@@ -4457,6 +4457,13 @@ font-size: 18px !important;
     .form {
         
     }
+.contact__wrapper {
+ flex-direction:column;
+}
+
+.contact__wrapper-right {
+width:100% !important;
+}
     .form__wrapper {
         padding-top: 40px;
         margin: 0;
@@ -4901,7 +4908,8 @@ font-size: 18px !important;
         margin-bottom: 15px
     }
     .system .swiper-wrapper {
-        padding-bottom: 35px
+        padding-bottom: 35px;
+padding-top: 10px;
     }
     .footer {
         margin-top: 20px

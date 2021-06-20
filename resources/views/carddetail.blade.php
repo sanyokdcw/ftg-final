@@ -36,11 +36,19 @@
       </div>
       <div class="card-detail__wrapper-right_price">
         @if ($currency == 'KZT')
-          {{  number_format($product->price_kz,0,","," ") }} тенге
+       <span id="item_price">   {{  number_format($product->price_kz,0,","," ") }} 
+	</span>
+тенге
         @elseif($currency == 'UAH')
-          {{  number_format($product->price_uah,0,","," ") }} гривен
+<span id="item_price">
+          {{  number_format($product->price_uah,0,","," ") }} 
+</span>
+гривен
         @elseif($currency == 'RUB')
-          {{  number_format($product->price_ru,0,","," ") }} рублей
+<span id="item_price">       
+   {{  number_format($product->price_ru,0,","," ") }} 
+</span>
+рублей
         @endif
         
       </div>
@@ -51,13 +59,22 @@
           <button class="card-detail__wrapper-right_plus" onclick="countIncrement()">+</button>
         </div>
         <div class="card-detail__wrapper-right_subprice title">
+
           @if ($currency == 'KZT')
-            {{ number_format($product->price_kz,0,","," ") }} тг
+<span id="total_price"> 
+ {{ number_format($product->price_kz,0,","," ") }}
+</span>
+ тг
           @elseif($currency == 'UAH')
-            {{ number_format($product->price_uah,0,","," ") }} грн
-          @elseif($currency == 'RUB')
-            {{  number_format($product->price_ru,0,","," ") }} руб
-          @endif
+       <span id="total_price">
+     {{ number_format($product->price_uah,0,","," ") }} грн
+</span>          
+@elseif($currency == 'RUB')
+<span id="total_price">       
+     {{  number_format($product->price_ru,0,","," ") }} руб
+</span>          
+@endif
+</span>
         </div>
         <form action="/cart-add" method="POST">
           @csrf
@@ -143,7 +160,10 @@
 <script>
 function countIncrement() {
   let count = document.getElementById("counter")
-  
+let price = document.getElementById("item_price")  
+let total_price = document.getElementById("total_price")
+let newPrice = Number(total_price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '')) + Number(price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, ''))
+total_price.innerHTML = `${addSpaces(newPrice)}`
   let newCount = parseInt(count.innerHTML) + 1
   count.innerHTML = `${newCount}`
   document.getElementById('quantity').value = newCount
@@ -151,14 +171,26 @@ function countIncrement() {
 
 function countDecrement() {
   let count = document.getElementById("counter")
-  
+   
   if(parseInt(count.innerHTML) > 1) {
-    let newCount = parseInt(count.innerHTML) - 1
+let price = document.getElementById("item_price")  
+   
+let total_price = document.getElementById("total_price")
+let newPrice = Number(total_price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '')) - Number(price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, ''))
+total_price.innerHTML = `${addSpaces(newPrice)}`
+  
+  let newCount = parseInt(count.innerHTML) - 1
     count.innerHTML = `${newCount}`
     document.getElementById('quantity').value = newCount
   }
 }
 
+function addSpaces(n) {
+  let num = Number(n)
+  let result = new Intl.NumberFormat().format(num)
+  
+  return result.toString()
+}
 </script>
 <script> 
     function changeTab(tab) {
@@ -202,6 +234,17 @@ Swal.fire(
   'success'
 )
 </script>
+@elseif (session('cart'))
+<script>
+
+Swal.fire(
+  'Товар успешно добавлен в корзину',
+'',  
+'success'
+)
+</script>
+
+
 @endif
 
 

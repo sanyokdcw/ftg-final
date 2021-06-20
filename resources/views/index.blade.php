@@ -9,10 +9,10 @@
 <section class="system">
   <div class="system__bg" style="background-image: url(images/main-bg.jpg);"></div>
   <div class="system__wrapper swiper-container">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" style="padding-top:10px">
       @foreach ($categories_menu as $category)
 	@php
-if(App\Models\Subcategory::where('category_id', $category->id)->first())
+if(App\Models\Subcategory::where('category_id', $category->id)->where('available', 1) ->first())
 	$sub_link = '/subcategory/' .  App\Models\Subcategory::where('category_id', $category->id)->first()->id;
 else $sub_link = '#'
 @endphp

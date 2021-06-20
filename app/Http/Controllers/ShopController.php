@@ -49,7 +49,7 @@ class ShopController extends Controller
                 'quantity'=>$request->quantity,
             ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with('cart', 'cart');;
     }
 
     public function cart_remove(Request $request) {
