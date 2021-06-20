@@ -1573,7 +1573,7 @@ button {
     margin: 25px 0 50px
 }
 .company__subtitle {
-    margin-top: 70px
+    margin-top: 25px
 }
 .company__block {
     display: -webkit-box;
@@ -1635,7 +1635,7 @@ button {
     letter-spacing: -1px;
     color: #474747;
     font-family: "MuseoSansCyrl-700";
-    margin-bottom: 35px
+    margin-bottom: 25px !important
 }
 .company__text {
     max-width: 620px;
@@ -1841,8 +1841,8 @@ margin-left:50px;
     margin-top: -10px
 }
 .project__wrapper-subtitle {
-    font-size: 20px;
-    margin-bottom: 43px
+    font-size: 17px;
+    margin-bottom: 43px;
 }
 .project__wrapper-button {
     display: -webkit-box;

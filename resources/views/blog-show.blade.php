@@ -124,8 +124,8 @@
   margin-left: -1em
   }
 .text li {
-    counter-increment: li
-
+    counter-increment: li;
+    margin-bottom: 25px;
   }
 </style>
 @include('layouts.footer')

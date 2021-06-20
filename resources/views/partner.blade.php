@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div class="pather__wrapper-item_title title">Ты можешь стать дилером FTG Company!</div>
+  <div class="pather__wrapper-item_title title" style="text-transform: uppercase;">Ты можешь стать дилером FTG Company!</div>
   <div class="pather__wrapper">
     @foreach ($cards as $card)
     <div class="pather__wrapper-item">
