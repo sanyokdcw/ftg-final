@@ -12,8 +12,8 @@
 @endphp
 
 <section class="url">
-  <div class="url__text">Главная</div>
-  <div class="url__text">Блог</div>
+  <div class="url__text"><a href="/">Главная</a></div>
+  <div class="url__text">Поиск</div>
 </section>
 
 <section class="project">
@@ -35,7 +35,7 @@
   @endif
   <div class="card__wrapper-bottom">
     @foreach ($products as $product)
-    <div class="card__wrapper-item">
+    <div class="card__wrapper-item" style=“margin-top:20px”>
       <a href="/product/{{ $product->id }}" class="card__wrapper-img" style="background-image: url(/storage/{{ $product->image }});"></a>
       <div class="card__wrapper-text">
         {{ $product->name }}
