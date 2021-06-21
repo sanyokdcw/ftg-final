@@ -110,8 +110,11 @@
           </div>
           <img src="../images/icon-cart.png" alt="">
         </a>
-        <button href="#" class="bar">
+        <a href="/search" class="header__button-search">
+          <img src="../images/menu.png" alt="" style="height: 19px; width: 18px">
+        </a>
+        {{-- <button href="#" class="bar">
           <img src="/images/menu.png" alt="" class="bar_img">
-        </button>
+        </button> --}}
       </div>
     </header>
