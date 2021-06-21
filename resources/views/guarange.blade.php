@@ -20,7 +20,9 @@
           <img src="/storage/{{ $guarantee->image }}" alt="">
           <span>{{ $guarantee->title }}</span>
         </div>
+        <div class="guarangewrapper-text"> 
         {!! $guarantee->text !!}
+        </div>
       </div>
     @endforeach
   </div>
