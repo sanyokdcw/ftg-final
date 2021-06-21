@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="office__order-item_row_bottom">
-            @foreach($order->products as $product)
+            {{-- @foreach($order->products as $product)
             
             <div class="office__order-item_order">
               <div class="office__order-item_name">
@@ -145,9 +145,9 @@
                   @endif
                 </a>
               </div>
-              {{-- <div class="office__order-item_count"><span>1</span> шт.</div> --}}
             </div>
-            @endforeach
+            @endforeach --}}
+            
           </div>
         </div>
         @endforeach

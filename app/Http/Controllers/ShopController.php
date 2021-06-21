@@ -123,6 +123,7 @@ class ShopController extends Controller
         }
         return view('office', compact('orders', 'popular'));
     }
+    
     public function currency_change($currency, Request $request){
         session(['currency' => $currency]);
         return redirect()->back();

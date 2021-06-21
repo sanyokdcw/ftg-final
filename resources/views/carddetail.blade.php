@@ -225,8 +225,7 @@ function changeTab(tab) {
   }
 }
 
-
-  function sendNumber() {
+function sendNumber() {
     let number = document.getElementById('number').value.replace(/[^\d.-]/g, '')
     if(number.length != 13)
     {
@@ -240,7 +239,7 @@ function changeTab(tab) {
       document.getElementById('number-form').submit()
     }
 
-  }
+}
 
 
 @if (session('cart'))
