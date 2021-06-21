@@ -6,7 +6,7 @@
             <img src="../images/logo.png" alt="">
           </div>
           <div class="footer__wrapper-text">
-            {{ setting('contacts.footer-text') }}
+            {{ setting('index.footer_description') }}
           </div>
         </div>
         <div class="footer__wrapper-item">

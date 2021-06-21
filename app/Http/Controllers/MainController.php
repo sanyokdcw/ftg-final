@@ -212,6 +212,5 @@ class MainController extends Controller
     }
 
     public function calculation(Request $request){
-        dd($request->all());
     }
 }
