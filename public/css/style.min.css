@@ -16,13 +16,11 @@
         width: 30% !important;
     }
 }
-.bar {
-    margin-left: 20px !important;
-    width: 30px !important;
+
+.bar_img {
+    width: 100%;
 }
-.bar__item {
-    width:150% !important;
-}
+
 .alux {
     display: flex;
     align-items: center;

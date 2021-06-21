@@ -111,9 +111,7 @@
           <img src="../images/icon-cart.png" alt="">
         </a>
         <button href="#" class="bar">
-          <div class="bar__item"></div>
-          <div class="bar__item"></div>
-          <div class="bar__item"></div>
+          <img src="/images/menu.png" alt="" class="bar_img">
         </button>
       </div>
     </header>
