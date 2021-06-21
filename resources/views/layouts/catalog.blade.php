@@ -28,10 +28,10 @@
                 <span style="text-transform: uppercase">
                   {{ session('locale') }}
                 </span>
-                <div class="arrow" style="display: flex; align-items:center; margin-left: 5px">
+                <div class="arrow" style="display: flex; align-items:center; margin-left: 5px; ">
                   <img src="/images/arrow-bottom.png" alt="" style="width: 8px">
                 </div>
-                <div class="dropdown-content" style="min-width: 0">
+                <div class="dropdown-content" style="min-width: 0; z-index:1000">
                   @foreach (['ru', 'kz', 'en'] as $locale)
                     @if($locale != session('locale'))
                       <p style="font-size: 15px; text-transform:uppercase">

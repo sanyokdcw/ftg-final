@@ -16,7 +16,13 @@
         width: 30% !important;
     }
 }
+.bar {
+    margin-left: 5px !important;
+    width: 45px !important;
+}
+.bar__item {
 
+}
 .alux {
     display: flex;
     align-items: center;
