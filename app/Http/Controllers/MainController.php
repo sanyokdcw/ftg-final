@@ -153,7 +153,7 @@ class MainController extends Controller
             App::setLocale('ru');
         }
 
-        return view('guarange');
+        return view('guarange', ['guarantees'=>Guarantee::all()->translate(session('locale'))]);
     }
 
     public function projects(){
