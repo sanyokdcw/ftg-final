@@ -8,13 +8,23 @@
 :root {
     --swiper-theme-color: #007aff
 }
-
+.footer__wrapper-item {
+    padding: 0 15px;
+}
 @media screen and (max-width:1440px){
     .card__wrapper-item {
         width: 30% !important;
     }
 }
 
+.alux {
+    display: flex;
+    align-items: center;
+}
+.alux img {
+    width: 110px;
+    margin-left: 10px;
+}
 .rotateimg180 {
   -webkit-transform:rotate(180deg);
   -moz-transform: rotate(180deg);

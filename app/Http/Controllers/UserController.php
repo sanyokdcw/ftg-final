@@ -14,7 +14,7 @@ class UserController extends Controller
             $user->update(['password'=> Hash::make($request->password)]);
             return redirect('/logout');
         }
-        return redirect('/office');
+        return redirect('/office')->with(['password' => 'password']);
 
     }
 }

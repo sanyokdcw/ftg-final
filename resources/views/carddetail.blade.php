@@ -238,7 +238,6 @@ function sendNumber() {
     else {
       document.getElementById('number-form').submit()
     }
-
 }
 
 

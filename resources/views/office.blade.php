@@ -11,7 +11,7 @@
   <div class="url__text">Личный кабинет</div>
 </section>
 
-<section class="office">
+<section class="office" style="margin-bottom: 260px;">
   <div class="office__title subtitle">ЛИЧНЫЙ КАБИНЕТ</div>
   <div class="office__wrapper">
     <div class="office__wrapper-item office__wrapper-item_active">
@@ -84,14 +84,14 @@
           @csrf
           <div class="office__order-password_wrapper">
             <div class="office__order-password_input">
-              <input type="password" placeholder="Введите старый пароль">
+              <input type="password" placeholder="Введите старый пароль" required>
               <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             </div>
             <div class="office__order-password_input">
-              <input type="password" name="password" placeholder="Введите новый пароль">
+              <input type="password" name="password" placeholder="Введите новый пароль" required>
             </div>
             <div class="office__order-password_input">
-              <input type="password" name="password_again" placeholder="Повторите новый пароль">
+              <input type="password" name="password_again" placeholder="Повторите новый пароль" required>
             </div>
           </div>
         <button class="office__order-btn" type="submit">Сменить пароль</button>
@@ -190,6 +190,20 @@
     </div>
   </div>
 </section>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+  @if (session('password'))
+
+
+Swal.fire(
+  'Пароли не совпадают, либо пароль введен неверно',
+  '',  
+  'error'
+)
+
+
+@endif
+</script>
 @include('layouts.footer')
 </html>
