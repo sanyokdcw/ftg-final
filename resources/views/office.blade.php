@@ -51,7 +51,7 @@
   <div class="office__choice">
     <div class="office__order">
       <div class="office__order-title title">Персональные данные</div>
-      <form action="#" class="office__order-form">
+      <form action="/request" method="POST" class="office__order-form">
         <div class="office__order-form_input">
           <input type="text" placeholder="Имя*"  value="{{ Auth::user()->name }}" required>
         </div>
@@ -72,11 +72,11 @@
         менеджером или оставьте запрос
       </div>
       <div class="btn-wrap" style="width:100%">
-<form action="/request" method="POST">
+        @csrf
+
         <button type="submit" class="office__order-btn">ОСТАВИТЬ ЗАЯВКУ</button>
 </form>      
 </div>
-      </form>
 
       <div class="office__order-password">
         <div class="office__order-title title">Сменить пароль</div>
@@ -190,7 +190,6 @@
     </div>
   </div>
 </section>
-
 
 @include('layouts.footer')
 </html>

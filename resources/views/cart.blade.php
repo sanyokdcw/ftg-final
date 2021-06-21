@@ -151,7 +151,7 @@
 
       <div class="cart__wrapper-right_text cart__wrapper-right_result">
         <div>ИТОГО К ОПЛАТЕ:</div>
-        <span> <span id="sum"> {{ number_format($sum,0,","," ") }} </span> 
+        <span> <span id="sum"> {{ number_format($discountSum,0,","," ") }} </span> 
           @if ($currency == 'KZT')
             тг
           @elseif($currency == 'UAH')
@@ -272,7 +272,7 @@ Swal.fire(
 
 function addSpaces(n) {
   let num = Number(n)
-  let result = new Intl.NumberFormat().format(num)
+  let result = new Intl.NumberFormat('ru-RU').format(num)
   
   return result.toString()
 }

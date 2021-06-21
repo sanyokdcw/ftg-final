@@ -8,19 +8,19 @@
       <form action="/request" method="POST">
         @csrf
       <div class="form__input">
-        <input type="text" placeholder="{{ __('index.fullname') }}*">
+        <input type="text" placeholder="{{ __('index.fullname') }}*" required>
       </div>
       <div class="form__input">
-        <input type="text" placeholder="{{ __('index.email') }}*">
+        <input type="text" placeholder="{{ __('index.email') }}*" required>
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="{{ __('index.number') }}*">
+        <input type="tel" placeholder="{{ __('index.number') }}*" required>
       </div>
       <div class="form__input">
-        <textarea>{{ __('index.question') }}</textarea> 
+        <textarea required>{{ __('index.question') }}</textarea> 
       </div>
       <div class="form__input">
-        <input type="submit" value="{{ __('index.send') }}">
+        <input type="submit" value="{{ __('index.send') }}" >
       </div>
     </form>
     </div>
@@ -32,13 +32,13 @@
       <form action="/request" method="POST">
         @csrf
       <div class="form__input">
-        <input type="text" placeholder="{{ __('index.fullname') }}*">
+        <input type="text" placeholder="{{ __('index.fullname') }}*" required>
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="{{ __('index.email') }}*">
+        <input type="tel" placeholder="{{ __('index.email') }}*" required>
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="{{ __('index.number') }}*">
+        <input type="tel" placeholder="{{ __('index.number') }}*" required>
       </div>
       <div class="form__input">
         <input type="submit" value="{{ __('index.send') }}">

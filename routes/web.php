@@ -75,8 +75,8 @@ Route::get('/calc', [MainController::class, 'calculator']);
 Route::post('/calculator/calculation', [MainController::class, 'calculation']);
 
 
-Route::post('/request', function() {
-    return redirect()->back()->with('success', 'success');
+Route::post('/request', function(Request $request) {
+    return redirect()->back()->with('contact', 'contact');
 });
 
 

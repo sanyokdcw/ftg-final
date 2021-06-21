@@ -13,7 +13,7 @@
 
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
-  <div class="url__text">{!! App\Models\Category::find($subcategory->category_id)->name !!}</div>
+  <div class="url__text">{!! strip_tags(App\Models\Category::find($subcategory->category_id)->name) !!}</div>
   <div class="url__text">{{ $subcategory->name }}</div>
 </section>
 

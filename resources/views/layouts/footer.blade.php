@@ -6,7 +6,7 @@
             <img src="../images/logo.png" alt="">
           </div>
           <div class="footer__wrapper-text">
-{{ setting('contacts.footer-text') }}
+            {{ setting('contacts.footer-text') }}
           </div>
         </div>
         <div class="footer__wrapper-item">
@@ -47,12 +47,29 @@
     </div>
     <div class="footer__bottom">
       <div class="footer__bottom-text">© ТОО “FTG Company”, 2017 г. Все права защищены.</div>
+      <div class="alux">
+        Разработано в 
+        <img src="/images/alux.png" alt="">
+      </div>
       <a href="#" class="footer__bottom-link">Политика конфиденциальности</a>
     </div>
   </footer>
 </div>
 </div>
 </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('contact'))
+<script>
+	
+Swal.fire(
+  'Ваша заявка принята',
+  'Мы вам перезвоним',
+  'success'
+)
+</script>
+@endif
 
 <script src="../js/main.min.js"></script>
 </body>
