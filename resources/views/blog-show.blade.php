@@ -9,7 +9,7 @@
     session(['currency' => 'KZT']);
   }
   $currency = session('currency');
-@endphp    
+@endphp
 
 <section class="url">
   <div class="url__text"><a href="/">Главная</a></div>
@@ -44,7 +44,7 @@
 </section>
 
 <div class="bottom-info">
-  <div class="blog__button-time">{{ $blog->created_at->format('d-m-Y') }}</div>
+  <div class="blog__button-time">{{ date('d-m-Y', strtotime($blog->created_at)) }}</div>
   <div class="socials">
     @foreach ($socials as $social)
       <a href="{{ $social->link }}" class="sitebar__social-link" style="margin-right: 5px;">
