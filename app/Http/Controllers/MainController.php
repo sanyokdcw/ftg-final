@@ -103,4 +103,9 @@ class MainController extends Controller
     public function calculation(Request $request){
         dd($request->all());
     }
+    // public function search(Request $request) {
+    //     $q = $request->q;
+    //     $products = Product::where('name', 'like', '%'.$q .'%')->get();
+    //     return view('search', compact('products', 'q'));
+    // }
 }

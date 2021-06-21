@@ -4,6 +4,12 @@
 @include('layouts.catalog')
 @include('layouts.header')
 @section('content')
+@php
+  if (session('currency') == null){
+    session(['currency' => 'KZT']);
+  }
+  $currency = session('currency');
+@endphp
 
 <section class="url">
   <div class="url__text">Главная</div>
@@ -18,99 +24,33 @@
       <img src="../images/search-icon.png" alt="">
     </button>
   </form>
-  @if($projects->count() == 0)
+  @if($products->count() == 0)
     <div class="project__title subtitle" style="font-size: 25px">По запросу {{ $q }} ничего не найдено</div>
   @elseif($q != null)
   <div class="project__title subtitle" style="font-size: 25px">Проекты по запросу: {{ $q }}</div>
 
   @else 
-  <div class="project__title subtitle">НАШИ ПРОЕКТЫ</div>
+  <div class="project__title subtitle">НАШИ ПРОДУКТЫ</div>
 
   @endif
-  <div class="project__wrapper">
-    @foreach ($projects as $project)
-    <div class="project__wrapper-card">
-      <div class="project__wrapper-left">
-        <div class="swiper-container mySwiper2">
-          <div class="swiper-wrapper">
-            @foreach (json_decode($project->image, true) as $image)
-            <div class="swiper-slide">
-              <img src="/storage/{{ $image }}"  style="width: 100%"/>
-            </div>
-            @endforeach
-          </div>
-        </div>
-        <div class="swiper-container mySwiper">
-          <div class="swiper-wrapper">
-            @foreach (json_decode($project->image, true) as $image)
-            <div class="swiper-slide">
-              <div class="project__wrapper-img" style="background-image: url(/storage/{{ str_replace ( '\\', '/', $image)}});">
-              </div>
-            </div>
-            @endforeach
-          </div>
-        </div>
-        
-        <div class="project__wrapper-info">
-          <div class="project__wrapper-info_item">
-            <div class="project__wrapper-info_title">
-              Срок
-              выполнения
-            </div>
-            <div class="project__wrapper-info_number">
-              {{ $project->deadline[0] }} <span>{{ $project->deadline[1] }}</span>
-            </div>
-          </div>
-          <div class="project__wrapper-info_item">
-            <div class="project__wrapper-info_title">
-              Начало
-              работы
-            </div>
-            <div class="project__wrapper-info_number">
-              {{ $project->start_of_work }} <span>год</span>
-            </div>
-          </div>
-          <div class="project__wrapper-info_item">
-            <div class="project__wrapper-info_title">
-              Стоимость
-              выполнения
-            </div>
-            <div class="project__wrapper-info_number">
-              {{ $project->price_kz }} <span>тг</span>
-            </div>
-          </div>
-        </div>
+  <div class="card__wrapper-bottom">
+    @foreach ($products as $product)
+    <div class="card__wrapper-item">
+      <a href="/product/{{ $product->id }}" class="card__wrapper-img" style="background-image: url(/storage/{{ $product->image }});"></a>
+      <div class="card__wrapper-text">
+        {{ $product->name }}
       </div>
-      <div class="project__wrapper-right">
-        <div class="project__wrapper-title title">
-          {{ $project->title }}
-        </div>
-        <div class="project__wrapper-subtitle">
-          {{ $project->description }}
-        </div>
-        <div class="project__wrapper-button">
-          <button class="project__wrapper-btn {{ $loop->index }}" onclick="changeTab(event, 'task{{ $loop->index }}')">ЗАДАЧА</button>
-          <button class="project__wrapper-btn {{ $loop->index }}" onclick="changeTab(event, 'solution{{ $loop->index }}')">Решение</button>
-          <button class="project__wrapper-btn {{ $loop->index }}" onclick="changeTab(event, 'result{{ $loop->index }}')">Итог</button>
-        </div>
-        <div class="project__wrapper-block">
-          <div class="project__wrapper-text" id="task{{ $loop->index }}">
-            {!! $project->task !!}
-          </div>
-          <div class="project__wrapper-text" id="solution{{ $loop->index }}">
-            {!! $project->solution !!}
-          </div>
-          <div class="project__wrapper-text" id="result{{ $loop->index }}">
-            {!! $project->result !!}
-          </div>
-        </div>
-        <div class="blog__button">
-          <a href="/project/{{ $project->id }}" class="blog__button-link">Читать далее</a>
-        </div>
+      <div class="card__wrapper-price"><span>
+        @if ($currency == 'KZT')
+          {{ number_format($product->price_kz,0,","," ") }}</span> тг
+        @elseif($currency == 'UAH')
+          {{ number_format($product->price_uah,0,","," ") }}</span> грн
+        @elseif($currency == 'RUB')
+          {{ number_format($product->price_ru,0,","," ") }}</span> руб
+        @endif
       </div>
-
+      <a href="/product/{{ $product->id }}" class="card__wrapper-btn">Подробнее</a>
     </div>
-
     @endforeach
   </div>
 
@@ -119,7 +59,7 @@
 <script>
   function changeTab(evt,type) {
 
-      @foreach($projects as $p) 
+      @foreach($products as $p) 
       btns = document.getElementsByClassName("{{ $loop->index }}");
       for (i = 0; i < btns.length; i++) {
         btns[i].style = "border: 1px solid #f7f9fa;"

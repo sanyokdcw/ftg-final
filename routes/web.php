@@ -8,6 +8,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 
 use App\Models\Project;
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,15 +77,15 @@ Route::post('/request', function() {
 
 
 Route::get('/search', function() {
-    $projects = Project::all();
+    $products = Product::all();
     $q = null;
-    return view('search', compact('projects', 'q'));
+    return view('search', compact('products', 'q'));
 });
 
 Route::post('/search', function(Request $request) {
     $q = $request->q;
-    $projects = Project::where('title', 'like', '%'.$q .'%')->get();
-    return view('search', compact('projects', 'q'));
+    $products = Product::where('name', 'like', '%'.$q .'%')->get();
+    return view('search', compact('products', 'q'));
 });
 
 
