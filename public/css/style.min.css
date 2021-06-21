@@ -4445,9 +4445,9 @@ font-size: 18px !important;
         margin-top: 2.5px
     }
     .header__button {
-        display: -webkit-box;
+        /* display: -webkit-box;
         display: -ms-flexbox;
-        display: flex;
+        display: flex; */
         width: 60% !important;
     }
     .system__wrapper-item {
