@@ -29,8 +29,8 @@ else $sub_link = '#'
       </div>
       @endforeach
     </div>
+      <div class="swiper-pagination" ></div>
 
-    <div class="swiper-pagination"></div>
   </div>
 </section>
 
