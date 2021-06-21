@@ -81,14 +81,14 @@ Route::post('/request', function() {
 
 
 Route::get('/search', function() {
-    $products = Product::all();
+    $products = Product::all()->translate(session('locale'));
     $q = null;
     return view('search', compact('products', 'q'));
 });
 
 Route::post('/search', function(Request $request) {
     $q = $request->q;
-    $products = Product::where('name', 'like', '%'.$q .'%')->get();
+    $products = Product::where('name', 'like', '%'.$q .'%')->get()->translate(session('locale'));
     return view('search', compact('products', 'q'));
 });
 

@@ -11,18 +11,31 @@ use App\Models\Cart;
 use App\Models\OrderProduct;
 use App\Models\Order;
 use Auth;
+use App;
 
 class ShopController extends Controller
 {
+    public function __construct() { 
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+    }
+    }
+    
     public function card($id, Request $request){
-        $subcategory = Subcategory::find($id);
-        $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+        $subcategory = Subcategory::find($id)->translate(session('locale'));
+        $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get()->translate(session('locale'));
         if($request->has('sort')) {
             $sort = $request->sort;
             if($sort == 'down')
-                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'desc')->get();
+                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'desc')->get()->translate(session('locale'));
             if($sort == 'up')
-                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get();
+                $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get()->translate(session('locale'));
 
             return view('card', compact('subcategory', 'products', 'sort'));
         }
@@ -32,8 +45,8 @@ class ShopController extends Controller
 
 
     public function card_detail($id){
-        $product = Product::find($id);
-        $products = Product::where('available', 1)->where('id', '!=', $id)->inRandomOrder()->take(3)->get();
+        $product = Product::find($id)->translate(session('locale'));
+        $products = Product::where('available', 1)->where('id', '!=', $id)->inRandomOrder()->take(3)->get()->translate(session('locale'));
         return view('carddetail', compact('product', 'products'));
     }
 
@@ -76,7 +89,7 @@ class ShopController extends Controller
             $discountSum += $product->price_kz - ( $product->price_kz * ($product->sale / 100));
         }
 
-        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
+        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get()->translate(session('locale'));
 
         return view('cart', compact('cart_items', 'sum', 'popular', 'discount', 'discountSum'));
     }
@@ -102,8 +115,8 @@ class ShopController extends Controller
     }
     
     public function office(){
-        $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get()->translate(session('locale'));
+        $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get()->translate(session('locale'));
 
         foreach($orders as $order){
             $order->products = $order->order_products;

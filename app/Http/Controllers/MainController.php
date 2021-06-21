@@ -15,57 +15,59 @@ use App\Models\Category;
 use App\Models\AboutCompany;
 use App\Models\Guarantee;
 use App\Models\Product;
+use App\Models\Employee;
 use App;
 use App\Blog;
 
 class MainController extends Controller
 {
-    public function index(){
-
+    public function __construct() { 
         if(session()->has('locale')) {
+
             $locale = session('locale');
             App::setLocale($locale);
         }
         else {
             $locale = session(['locale' => 'ru']);
             App::setLocale('ru');
-        }
-
+    }
+    }
+    public function index(){
         return view('index', [
-            'advantages' => Advantage::all(),
+            'advantages' => Advantage::all()->translate(session('locale')),
             'customers' => Customer::all()->take(5),
             'blogs' => Blog::orderBy('created_at', 'desc')->take(3)->get(),
-            'categories_menu' => Category::orderBy('created_at', 'desc')->get(),
+            'categories_menu' => Category::orderBy('created_at', 'desc')->get()->translate(session('locale')),
         ]);
     }
 
     public function company(){
         return view('company', [
-            'c' => AboutCompany::first(),
-            'advantages' => Advantage::all(),
-            'certificates'=> Certificate::all()
+            'c' => AboutCompany::first()->translate(session('locale')),
+            'advantages' => Advantage::all()->translate(session('locale')),
+            'certificates'=> Certificate::all()->translate(session('locale'))
         ]);
     }
     public function delivery(){
         return view('delivery', [
-            'deliveries' => Delivery::all(),
-            'payments' => Payment::all()
+            'deliveries' => Delivery::all()->translate(session('locale')),
+            'payments' => Payment::all()->translate(session('locale'))
         ]);
     }
     public function partners(){
-        return view('partner', ['cards'=>PartnerCard::all()]);
+        return view('partner', ['cards'=>PartnerCard::all()->translate(session('locale'))]);
     }
 
     public function team(){
         $positions = Position::all();
         foreach($positions as $position){
-            $position->employees = $position->employees;
+            $position->employees = Employee::where('position_id', $position->id)->get()->translate(session('locale'));
         }
         return view('team', compact('positions'));
     }
     
     public function blog(){
-        return view('blog', ['blogs' => Blog::all()]);
+        return view('blog', ['blogs' => Blog::all()->translate(session('locale'))]);
     }
 
     public function blog_show($id) {
@@ -75,8 +77,8 @@ class MainController extends Controller
         else {
             $next_id = Blog::find($id + 1)->id;
         }
-        return view('blog-show', ['blog' => Blog::find($id),
-        'products' => Product::where('available', 1)->inRandomOrder()->take(3)->get(),
+        return view('blog-show', ['blog' => Blog::find($id)->translate(session('locale')),
+        'products' => Product::where('available', 1)->inRandomOrder()->take(3)->get()->translate(session('locale')),
         'next_id' => $next_id
         ]);
     }
@@ -86,7 +88,7 @@ class MainController extends Controller
     }
 
     public function projects(){
-        $projects = Project::all();
+        $projects = Project::all()->translate(session('locale'));
 
         foreach($projects as $project){
             $deadline = explode(" ", $project->deadline);
@@ -97,7 +99,7 @@ class MainController extends Controller
     }
 
     public function pageproject($id){
-        $project = Project::find($id);
+        $project = Project::find($id)->translate(session('locale'));
 
         $deadline = explode(" ", $project->deadline);
         $project->deadline = $deadline;
