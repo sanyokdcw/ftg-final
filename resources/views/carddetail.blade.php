@@ -36,11 +36,19 @@
       </div>
       <div class="card-detail__wrapper-right_price">
         @if ($currency == 'KZT')
-          {{  number_format($product->price_kz,0,","," ") }} тенге
+       <span id="item_price">   {{  number_format($product->price_kz,0,","," ") }} 
+	</span>
+тенге
         @elseif($currency == 'UAH')
-          {{  number_format($product->price_uah,0,","," ") }} гривен
+<span id="item_price">
+          {{  number_format($product->price_uah,0,","," ") }} 
+</span>
+гривен
         @elseif($currency == 'RUB')
-          {{  number_format($product->price_ru,0,","," ") }} рублей
+<span id="item_price">       
+   {{  number_format($product->price_ru,0,","," ") }} 
+</span>
+рублей
         @endif
         
       </div>
@@ -51,13 +59,22 @@
           <button class="card-detail__wrapper-right_plus" onclick="countIncrement()">+</button>
         </div>
         <div class="card-detail__wrapper-right_subprice title">
+
           @if ($currency == 'KZT')
-            {{ number_format($product->price_kz,0,","," ") }} тг
+<span id="total_price"> 
+ {{ number_format($product->price_kz,0,","," ") }}
+</span>
+ тг
           @elseif($currency == 'UAH')
-            {{ number_format($product->price_uah,0,","," ") }} грн
-          @elseif($currency == 'RUB')
-            {{  number_format($product->price_ru,0,","," ") }} руб
-          @endif
+       <span id="total_price">
+     {{ number_format($product->price_uah,0,","," ") }} грн
+</span>          
+@elseif($currency == 'RUB')
+<span id="total_price">       
+     {{  number_format($product->price_ru,0,","," ") }} руб
+</span>          
+@endif
+</span>
         </div>
         <form action="/cart-add" method="POST">
           @csrf
@@ -80,20 +97,29 @@
 
 <section class="specifications">
   <div class="specifications__top">
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link1"  onclick="changeTab(1)" style="cursor: pointer; color: rgb(120, 185, 235);">
       Описание
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link2"  onclick="changeTab(2)" style="cursor:pointer">
       Характеристики
     </div>
-    <div class="specifications__top-item">
+    <div class="specifications__top-item" id="Link3"  onclick="changeTab(3)" style="cursor:pointer">
       Документация
     </div>
   </div>
   <div class="specifications__bottom">
-    <div class="specifications__bottom-item">
+    <div class="specifications__bottom-item" id="Tab1" style="display: block;">
     {!! strip_tags($product->description) !!}
+	
     </div>
+    <div class="specifications__bottom-item" id="Tab2" style="display: none;">
+    {!! strip_tags($product->characteristics) !!}
+    </div>
+
+    <div class="specifications__bottom-item" id="Tab3" style="display: none;">
+    {!! strip_tags($product->documentation) !!}
+    </div>
+
   </div>
 </section>
 
@@ -134,7 +160,10 @@
 <script>
 function countIncrement() {
   let count = document.getElementById("counter")
-  
+let price = document.getElementById("item_price")  
+let total_price = document.getElementById("total_price")
+let newPrice = Number(total_price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '')) + Number(price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, ''))
+total_price.innerHTML = `${addSpaces(newPrice)}`
   let newCount = parseInt(count.innerHTML) + 1
   count.innerHTML = `${newCount}`
   document.getElementById('quantity').value = newCount
@@ -142,14 +171,82 @@ function countIncrement() {
 
 function countDecrement() {
   let count = document.getElementById("counter")
-  
+   
   if(parseInt(count.innerHTML) > 1) {
-    let newCount = parseInt(count.innerHTML) - 1
+let price = document.getElementById("item_price")  
+   
+let total_price = document.getElementById("total_price")
+let newPrice = Number(total_price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, '')) - Number(price.innerHTML.replace(/\s/g, '').replace(/&nbsp;/g, ''))
+total_price.innerHTML = `${addSpaces(newPrice)}`
+  
+  let newCount = parseInt(count.innerHTML) - 1
     count.innerHTML = `${newCount}`
     document.getElementById('quantity').value = newCount
   }
 }
 
+function addSpaces(n) {
+  let num = Number(n)
+  let result = new Intl.NumberFormat().format(num)
+  
+  return result.toString()
+}
 </script>
+<script> 
+    function changeTab(tab) {
+           if(tab === 1) {
+             document.getElementById('Tab1').style.display = "block"
+             document.getElementById('Tab2').style.display = "none"
+             document.getElementById('Tab3').style.display = "none"
+
+             document.getElementById('Link1').style.color = "#78b9eb"
+             document.getElementById('Link2').style.color = "black"
+             document.getElementById('Link3').style.color = "black"
+
+           }
+  if(tab === 2) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "block"
+    document.getElementById('Tab3').style.display = "none"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "#78b9eb"
+    document.getElementById('Link3').style.color = "black"
+  }
+  if(tab === 3) {
+    document.getElementById('Tab1').style.display = "none"
+    document.getElementById('Tab2').style.display = "none"
+    document.getElementById('Tab3').style.display = "block"
+    document.getElementById('Link1').style.color = "black"
+    document.getElementById('Link2').style.color = "black"
+    document.getElementById('Link3').style.color = "#78b9eb"
+  }
+}
+
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+	
+Swal.fire(
+  'Ваша заявка принята',
+  'Мы вам перезвоним',
+  'success'
+)
+</script>
+@elseif (session('cart'))
+<script>
+
+Swal.fire(
+  'Товар успешно добавлен в корзину',
+'',  
+'success'
+)
+</script>
+
+
+@endif
+
+
 @include('layouts.footer')
 </html>

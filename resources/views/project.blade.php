@@ -90,15 +90,14 @@
           <button class="project__wrapper-btn {{ $loop->index }}" onclick="changeTab(event, 'result{{ $loop->index }}')">Итог</button>
         </div>
         <div class="project__wrapper-block">
-          <div class="project__wrapper-text" id="task{{ $loop->index }}">
-            {!! $project->task !!}
+          <div class="project__wrapper-text" id="task{{ $loop->index }}" style="margin-top: 0 !important;">
+            {{ $project->task }}
           </div>
-          <div class="project__wrapper-text" id="solution{{ $loop->index }}">
-            {!! $project->solution !!}
+          <div class="project__wrapper-text" id="solution{{ $loop->index }}" style="margin-top:0 !important;">
+            {{ $project->solution }}
           </div>
-          <div class="project__wrapper-text" id="result{{ $loop->index }}">
-            {!! $project->result !!}
-
+          <div class="project__wrapper-text" id="result{{ $loop->index }}" style="margin-top:0 !important;">
+            {{ $project->result }}
           </div>
 <div class="project__wrapper-block_bg"></div>
         </div>

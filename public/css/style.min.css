@@ -37,7 +37,9 @@
 
 .system_img {
     height:100%;
-    object-fit: cover;
+width:100%;
+max-width: 200px;
+    object-fit: contain;
 }
 
 .swiper-container {
@@ -1052,7 +1054,7 @@ button {
     color: #474747;
     padding-right: 15px;
     position: relative;
-    font-weight: 700
+    font-weight: 500
 }
 .header .menu__list-link_active:before {
     content: "";
@@ -1103,7 +1105,7 @@ button {
     height: 380px
 }
 .system__wrapper {
-    margin-top: 80px;
+    margin-top: 70px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1571,7 +1573,7 @@ button {
     margin: 25px 0 50px
 }
 .company__subtitle {
-    margin-top: 70px
+    margin-top: 25px
 }
 .company__block {
     display: -webkit-box;
@@ -1633,7 +1635,7 @@ button {
     letter-spacing: -1px;
     color: #474747;
     font-family: "MuseoSansCyrl-700";
-    margin-bottom: 35px
+    margin-bottom: 25px !important
 }
 .company__text {
     max-width: 620px;
@@ -1839,8 +1841,8 @@ margin-left:50px;
     margin-top: -10px
 }
 .project__wrapper-subtitle {
-    font-size: 20px;
-    margin-bottom: 43px
+    font-size: 17px;
+    margin-bottom: 43px;
 }
 .project__wrapper-button {
     display: -webkit-box;
@@ -2018,14 +2020,14 @@ margin-left:50px;
     margin-bottom: 25px;
     max-width: 230px
 }
+
 .delivery__wrapper-text {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 25px;
     max-width: 260px;
     margin-bottom: 30px
 }
-.delivery__wrapper-text span {
-    font-family: "MuseoSansCyrl-900"
+.delivery__wrapper-text span {    font-family: "MuseoSansCyrl-900"
 }
 .methods .delivery__subtitle {
     margin-top: 60px
@@ -2039,11 +2041,10 @@ margin-left:50px;
     justify-content: space-between
 }
 .methods__wrapper-item {
-    width: 420px;
-    height: 470px;
+	   height: 470px;
     background: #f7f9fa;
     border-radius: 6px;
-    padding: 70px
+    padding: 50px
 }
 .methods__wrapper-title {
     display: -webkit-box;
@@ -3305,7 +3306,7 @@ font-size: 18px !important;
     font-family: "MuseoSansCyrl-700"
 }
 .product__wrapper-right {
-    margin-left: 0;
+    margin-left:150px;
     width: 100%;
 }
 .product__wrapper-right .product__wrapper-right_title {
@@ -3812,13 +3813,13 @@ font-size: 18px !important;
         margin-top: 5px
     }
     .property__wrapper {
-        /* padding: 25px 17px */
+        padding: 81px 30px;
     }
     .header .menu__list {
         margin-right: 65px
     }
     .property__wrapper-item {
-        width: 47%;
+        width: 19%;
         max-width: 100%
     }
     .contact__wrapper {
@@ -4456,6 +4457,13 @@ font-size: 18px !important;
     .form {
         
     }
+.contact__wrapper {
+ flex-direction:column;
+}
+
+.contact__wrapper-right {
+width:100% !important;
+}
     .form__wrapper {
         padding-top: 40px;
         margin: 0;
@@ -4900,7 +4908,8 @@ font-size: 18px !important;
         margin-bottom: 15px
     }
     .system .swiper-wrapper {
-        padding-bottom: 35px
+        padding-bottom: 35px;
+padding-top: 10px;
     }
     .footer {
         margin-top: 20px

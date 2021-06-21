@@ -67,12 +67,12 @@ Route::post('/cart-remove', [ShopController::class, 'cart_remove']);
 Route::post('/add-order', [ShopController::class, 'add_order'])->middleware('auth');
 Route::post('/password_change', [UserController::class, 'password_change'])->middleware('auth');
 
-Route::get('/calculator', [MainController::class, 'calculator']);
+Route::get('/calc', [MainController::class, 'calculator']);
 Route::post('/calculator/calculation', [MainController::class, 'calculation']);
 
 
 Route::post('/request', function() {
-    return redirect()->back();
+    return redirect()->back()->with('success', 'success');
 });
 
 

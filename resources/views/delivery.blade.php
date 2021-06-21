@@ -35,7 +35,7 @@
   <div class="delivery__subtitle title">СПОСОБЫ ОПЛАТЫ</div>
   <div class="methods__wrapper">
     @foreach ($payments as $payment)
-    <div class="methods__wrapper-item">
+    <div class="methods__wrapper-item" style="padding:50px">
       <div class="methods__wrapper-title">
         <img src="/storage/{{ $payment->image }}" alt="">
         <span>{{ $payment->title }}</span>

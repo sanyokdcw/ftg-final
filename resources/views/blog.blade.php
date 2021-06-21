@@ -14,7 +14,9 @@
   <div class="blog__title subtitle">БЛОГ</div>
   <div class="blog__wrapper">
     @foreach ($blogs as $blog)
-    <div class="blog__wrapper-card">
+
+    
+    <div class="blog__wrapper-card" @if($loop->index >= 2)  style="display:none" @endif>
       <div class="blog__wrapper-top">
         <img src="/storage/{{ $blog->image }}" alt="">
       </div>
@@ -32,8 +34,16 @@
     @endforeach
   </div>
 
-  {{-- <button class="blog__btn">Показать ещё</button> --}}
+  <button class="blog__btn" onclick="showBlocks()" id="btn-more">Показать ещё</button>
 </section>
 
+
+<script>
+function showBlocks() {
+  let blocks = Array.from(document.querySelectorAll('.blog__wrapper-card'))
+  blocks.forEach(element => element.style.display="block")
+  document.getElementById('btn-more').style.display = "none"
+}
+</script>
 @include('layouts.footer')
 </html>
