@@ -15,7 +15,8 @@ use App;
 
 class ShopController extends Controller
 {
-    public function __construct() { 
+    
+    public function card($id, Request $request){
         if(session()->has('locale')) {
 
             $locale = session('locale');
@@ -24,10 +25,8 @@ class ShopController extends Controller
         else {
             $locale = session(['locale' => 'ru']);
             App::setLocale('ru');
-    }
-    }
-    
-    public function card($id, Request $request){
+        }
+
         $subcategory = Subcategory::find($id)->translate(session('locale'));
         $products = Product::where('available', 1)->where('subcategory_id', $subcategory->id)->orderBy('price_kz', 'asc')->get()->translate(session('locale'));
         if($request->has('sort')) {
@@ -45,12 +44,32 @@ class ShopController extends Controller
 
 
     public function card_detail($id){
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         $product = Product::find($id)->translate(session('locale'));
         $products = Product::where('available', 1)->where('id', '!=', $id)->inRandomOrder()->take(3)->get()->translate(session('locale'));
         return view('carddetail', compact('product', 'products'));
     }
 
     public function cart_add(Request $request) {
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->get();
         if($cart->isEmpty() == false){
             $cart[0]->update(['quantity' => $cart[0]->quantity + $request->quantity]);
@@ -66,11 +85,31 @@ class ShopController extends Controller
     }
 
     public function cart_remove(Request $request) {
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         Cart::where('user_id', Auth::user()->id)->where('product_id', $request->product_id)->first()->delete();
         return redirect()->back();
     }
 
     public function cart(Request $request){
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         $cart_items = Cart::where('user_id', Auth::user()->id)->get();
         $sum = 0;
         $discount = 0;
@@ -94,6 +133,16 @@ class ShopController extends Controller
         return view('cart', compact('cart_items', 'sum', 'popular', 'discount', 'discountSum'));
     }
     public function add_order(Request $request){
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         $order = Order::Create([
             'user_id'=> Auth::user()->id,
             'sum'=>$request->sum,
@@ -115,6 +164,16 @@ class ShopController extends Controller
     }
     
     public function office(){
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get()->translate(session('locale'));
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get()->translate(session('locale'));
 
@@ -122,6 +181,16 @@ class ShopController extends Controller
     }
     
     public function currency_change($currency, Request $request){
+        if(session()->has('locale')) {
+
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         session(['currency' => $currency]);
         return redirect()->back();
     }

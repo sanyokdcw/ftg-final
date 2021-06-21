@@ -27,6 +27,15 @@ Route::get('/setlocale/{locale}', function($locale) {
 Route::get('/cart', [ShopController::class, 'cart'])->middleware('auth'); 
 
 Route::get('/contact', function () {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
     return view('contact');
 });
 
@@ -35,10 +44,28 @@ Route::get('/guarange', [MainController::class, 'guarange']);
 Route::get('/office', [ShopController::class, 'office'])->middleware('auth');
 
 Route::get('/pageproject', function () {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
     return view('pageproject');
 });
 
 Route::get('/product', function () {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
     return view('product');
 });
 
@@ -76,17 +103,46 @@ Route::post('/calculator/calculation', [MainController::class, 'calculation']);
 
 
 Route::post('/request', function(Request $request) {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
+
     return redirect()->back()->with('contact', 'contact');
 });
 
 
 Route::get('/search', function() {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
     $products = Product::all()->translate(session('locale'));
     $q = null;
     return view('search', compact('products', 'q'));
 });
 
 Route::post('/search', function(Request $request) {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
+
     $q = $request->q;
     $products = Product::where('name', 'like', '%'.$q .'%')->get()->translate(session('locale'));
     return view('search', compact('products', 'q'));
@@ -98,6 +154,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/dashboard', function () {
+    if(session()->has('locale')) {
+    
+        $locale = session('locale');
+        App::setLocale($locale);
+    }
+    else {
+        $locale = session(['locale' => 'ru']);
+        App::setLocale('ru');
+}
+
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
