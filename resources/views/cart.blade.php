@@ -163,16 +163,17 @@
       </div>
       <button type="submit" class="cart__wrapper-right_btn">ОФОРМИТЬ ЗАКАЗ</button>
     </form>
+
+    <form action="/request" method="POST" id="number-form">
+      @csrf
       <div class="cart__wrapper-right_consultation">
         <div class="cart__wrapper-right_input">
-          <input type="text" name="phone">
+          <input type="text" name="phone" id="number">
         </div>
 
-        <form action="/request" method="POST">
-          @csrf        
-        <button type="submit" class="card-detail__wrapper-right_order">Заказать консультацию</button>
-        </form>  
+        <button type="button"  onclick="sendNumber()" class="card-detail__wrapper-right_order">Заказать консультацию</button>
       </div>
+    </form>  
     </div>
   </div>
 </section>
@@ -276,6 +277,22 @@ function addSpaces(n) {
   
   return result.toString()
 }
+
+function sendNumber() {
+    let number = document.getElementById('number').value.replace(/[^\d.-]/g, '')
+    if(number.length != 13)
+    {
+      Swal.fire(
+        'Пожалуйста, введите корректный номер',
+        '',  
+        'error'
+      )
+    }
+    else {
+      document.getElementById('number-form').submit()
+    }
+}
+
 
 </script>
 @include('layouts.footer')
