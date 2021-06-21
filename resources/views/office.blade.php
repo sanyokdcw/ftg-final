@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="office__order-item_row_bottom">
-            {{-- @foreach($order->products as $product)
+            @foreach(App\Models\OrderProduct::where('product_id', $order->id) as $product)
             
             <div class="office__order-item_order">
               <div class="office__order-item_name">
@@ -146,7 +146,7 @@
                 </a>
               </div>
             </div>
-            @endforeach --}}
+            @endforeach
             
           </div>
         </div>

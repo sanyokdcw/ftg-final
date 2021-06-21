@@ -118,9 +118,6 @@ class ShopController extends Controller
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get()->translate(session('locale'));
         $popular = Product::where('available', 1)->inRandomOrder()->take(3)->get()->translate(session('locale'));
 
-        foreach($orders as $order){
-            $order->products = $order->order_products;
-        }
         return view('office', compact('orders', 'popular'));
     }
     
