@@ -14,29 +14,15 @@
 <div class="guarange">
   <div class="guarange__title subtitle">ГАРАНТИЯ И СЕРВИС</div>
   <div class="guarange__wrapper">
-    <div class="guarange__wrapper-item">
-      <div class="guarange__wrapper-title title">
-        <img src="../images/guarantee/item-1.png" alt="">
-        <span>Комплексная гарантия до 5 лет!</span>
+    @foreach ($guarantees as $guarantee)
+      <div class="guarange__wrapper-item">
+        <div class="guarange__wrapper-title title">
+          <img src="/storage/{{ $guarantee->image }}" alt="">
+          <span>{{ $guarantee->title }}</span>
+        </div>
+        {!! $guarantee->text !!}
       </div>
-      <div class="guarange__wrapper-text">
-        Теперь у вас будет 2 года гарантии! На любое оборудование, без доплат и скрытых платежей, все честно.
-      </div>
-      <div class="guarange__wrapper-text">
-        Вы покупаете фильтр, а мы гарантируемего безупречную работу.
-      </div>
-    </div>
-
-    <div class="guarange__wrapper-item">
-      <div class="guarange__wrapper-title title">
-        <img src="../images/guarantee/item-2.png" alt="">
-        <span>Обмен и возврат</span>
-      </div>
-      <div class="guarange__wrapper-text">
-        Без проблем возвращаем и обмениваем товар в четырехдневный срок, если товар не был в эксплуатации, а
-        комплект не розпаковани.Мы делаем все возможное, чтобы вы остались довольны.
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>
 

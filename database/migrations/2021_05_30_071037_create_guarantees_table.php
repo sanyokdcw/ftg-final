@@ -15,6 +15,9 @@ class CreateGuaranteesTable extends Migration
     {
         Schema::create('guarantees', function (Blueprint $table) {
             $table->id();
+            $table->text('image');
+            $table->text('title');
+            $table->text('text');
             $table->timestamps();
         });
     }
