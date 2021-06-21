@@ -1,47 +1,47 @@
 <div class="content">
   <div class="form">
     <div class="form__wrapper" style="display: none">
-      <div class="form__title">ОБРАТНЫЙ ЗВОНОК</div>
+      <div class="form__title">{{ __('index.callback') }}</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
       </button>
       <form action="/request" method="POST">
         @csrf
       <div class="form__input">
-        <input type="text" placeholder="ФИО*">
+        <input type="text" placeholder="{{ __('index.fullname') }}*">
       </div>
       <div class="form__input">
-        <input type="text" placeholder="Электронная почта*">
+        <input type="text" placeholder="{{ __('index.email') }}*">
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="Номер телефона*">
+        <input type="tel" placeholder="{{ __('index.number') }}*">
       </div>
       <div class="form__input">
-        <textarea>Задайте вопрос</textarea> 
+        <textarea>{{ __('index.question') }}</textarea> 
       </div>
       <div class="form__input">
-        <input type="submit" value="Отправить">
+        <input type="submit" value="{{ __('index.send') }}">
       </div>
     </form>
     </div>
     <div class="form__wrapper" style="display: none">
-      <div class="form__title">Подобрать систему</div>
+      <div class="form__title">{{ __('index.system') }}</div>
       <button class="form__close">
         <img src="../images/pather-close.png" alt="">
       </button>
       <form action="/request" method="POST">
         @csrf
       <div class="form__input">
-        <input type="text" placeholder="Ваше имя*">
+        <input type="text" placeholder="{{ __('index.fullname') }}*">
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="Email*">
+        <input type="tel" placeholder="{{ __('index.email') }}*">
       </div>
       <div class="form__input">
-        <input type="tel" placeholder="Номер телефона*">
+        <input type="tel" placeholder="{{ __('index.number') }}*">
       </div>
       <div class="form__input">
-        <input type="submit" value="Отправить">
+        <input type="submit" value="{{ __('index.send') }}">
       </div>
       </form>
     </div>
@@ -56,39 +56,39 @@
         </div>
         <ul class="menu__ul">
           <li class="menu__list">
-            <a href="/company" class="menu__list-link menu__list-link_active">Про компанию</a>
+            <a href="/company" class="menu__list-link menu__list-link_active">{{ __('index.about') }}</a>
             <div class="menu__list-submenu">
-              <a href="/company" class="menu__list-link">Про компанию</a>
-              <a href="/blog" class="menu__list-link">Блог</a>
-              <a href="/projects" class="menu__list-link">Наши проекты</a>
-              <a href="/team" class="menu__list-link">Команда</a>
-              <a href="/delivery" class="menu__list-link">Доставка</a>
-              <a href="/guarange" class="menu__list-link">Гарантия и Сервис</a>
+              <a href="/company" class="menu__list-link">{{ __('index.about') }}</a>
+              <a href="/blog" class="menu__list-link">{{ __('index.blog') }}</a>
+              <a href="/projects" class="menu__list-link">{{ __('index.projects') }}</a>
+              <a href="/team" class="menu__list-link">{{ __('index.team') }}</a>
+              <a href="/delivery" class="menu__list-link">{{ __('index.del') }}</a>
+              <a href="/guarange" class="menu__list-link">{{ __('index.warranty') }}</a>
             </div>
           </li>
           <li class="menu__list">
-            <a href="/company" class="menu__list-link menu__list-link_active">Клиентам</a>
+            <a href="/company" class="menu__list-link menu__list-link_active">{{ __('index.clients') }}</a>
             <div class="menu__list-submenu">
-              <a href="/company" class="menu__list-link">Про компанию</a>
-              <a href="/blog" class="menu__list-link">Блог</a>
-              <a href="/projects" class="menu__list-link">Наши проекты</a>
-              <a href="/team" class="menu__list-link">Команда</a>
-              <a href="/delivery" class="menu__list-link">Доставка</a>
-              <a href="/guarange" class="menu__list-link">Гарантия и Сервис</a>
+              <a href="/company" class="menu__list-link">{{ __('index.about') }}</a>
+              <a href="/blog" class="menu__list-link">{{ __('index.blog') }}</a>
+              <a href="/projects" class="menu__list-link">{{ __('index.projects') }}</a>
+              <a href="/team" class="menu__list-link">{{ __('index.team') }}</a>
+              <a href="/delivery" class="menu__list-link">{{ __('index.del') }}</a>
+              <a href="/guarange" class="menu__list-link">{{ __('index.warranty') }}</a>
 
             </div>
           </li>
           <li class="menu__list">
-            <a href="/partner" class="menu__list-link">Партнерам</a>
+            <a href="/partner" class="menu__list-link">{{ __('index.partners') }}</a>
           </li>
           <li class="menu__list">
-            <a href="/contact" class="menu__list-link">Контакты</a>
+            <a href="/contact" class="menu__list-link">{{ __('index.contacts') }}</a>
           </li>
         </ul>
       </nav>
       <div class="header__button">
         @if(Auth::check())
-          <a href="/logout" style="margin:0">Выйти</a>
+          <a href="/logout" style="margin:0">{{ __('index.logout') }}</a>
           <a href="/office" class="header__button-user">
             <img src="../images/user-icon.png" alt="" style="">
           </a>

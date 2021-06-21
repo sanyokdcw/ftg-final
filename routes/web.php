@@ -19,6 +19,10 @@ use App\Models\Product;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/setlocale/{locale}', function($locale) {
+   session(['locale' => $locale]);
+   return redirect()->back();
+});
 
 Route::get('/cart', [ShopController::class, 'cart'])->middleware('auth'); 
 

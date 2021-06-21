@@ -24,8 +24,24 @@
               <div class="sitebar__wrapper-item_left">
                 <img src="../images/language-icon.png" alt="">
               </div>
-              <div class="sitebar__wrapper-item_right">
-                RU
+              <div class="sitebar__wrapper-item_right dropdown" style="display:flex">
+                <span style="text-transform: uppercase">
+                  {{ session('locale') }}
+                </span>
+                <div class="arrow" style="display: flex; align-items:center; margin-left: 5px">
+                  <img src="/images/arrow-bottom.png" alt="" style="width: 8px">
+                </div>
+                <div class="dropdown-content" style="min-width: 0">
+                  @foreach (['ru', 'kz', 'en'] as $locale)
+                    @if($locale != session('locale'))
+                      <p style="font-size: 15px; text-transform:uppercase">
+                        <a href="/setlocale/{{ $locale }}">
+                          {{ $locale }}
+                        </a>
+                      </p>
+                    @endif
+                  @endforeach
+                </div>
               </div>
             </div>
 
@@ -101,17 +117,17 @@
             <div class="sitebar__wrapper-item sitebar__wrapper-ball">
               <a href="tel:{{ setting('contacts.telephone') }}">
                 <img src="../images/phone-2.png" alt="">
-                <div class="sitebar__wrapper-item_right" style="    font-size: 11px;">
-                  Позвонить
+                <div class="sitebar__wrapper-item_right" style="font-size: 14px;">
+                  {{ __('index.call') }}
                 </div>
               </a>
             </div>
 
           </div>
         </div>
-        <a href="/product" class="sitebar__btn">Подобрать Продукцию</a>
+        <a href="/product" class="sitebar__btn">{{ __('index.products') }}</a>
         <div class="sitebar__drowdown-title">
-          <img src="../images/product-icon.png" alt=""> <span>Каталог продукции</span>
+          <img src="../images/product-icon.png" alt=""> <span>{{ __('index.catalog') }}</span>
         </div>
         <div class="sitebar__fixed">
           <div class="sitebar__fixed-close">
@@ -135,7 +151,7 @@
 
           </ul>
 
-          <a href="#" class="sitebar__link btn-contact2" onclick="openModelRight('contact2')">Напишите нам</a>
+          <a href="#" class="sitebar__link btn-contact2" onclick="openModelRight('contact2')">{{ __('index.write_us') }}</a>
           <div class="sitebar__social">
             @foreach ($socials as $social)
               <a href="{{ $social->link }}" class="sitebar__social-link">

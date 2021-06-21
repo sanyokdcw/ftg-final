@@ -15,12 +15,22 @@ use App\Models\Category;
 use App\Models\AboutCompany;
 use App\Models\Guarantee;
 use App\Models\Product;
-
+use App;
 use App\Blog;
 
 class MainController extends Controller
 {
     public function index(){
+
+        if(session()->has('locale')) {
+            $locale = session('locale');
+            App::setLocale($locale);
+        }
+        else {
+            $locale = session(['locale' => 'ru']);
+            App::setLocale('ru');
+        }
+
         return view('index', [
             'advantages' => Advantage::all(),
             'customers' => Customer::all()->take(5),

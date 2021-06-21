@@ -14,8 +14,6 @@
   <div class="blog__title subtitle">БЛОГ</div>
   <div class="blog__wrapper">
     @foreach ($blogs as $blog)
-
-    
     <div class="blog__wrapper-card" @if($loop->index >= 2)  style="display:none" @endif>
       <div class="blog__wrapper-top">
         <img src="/storage/{{ $blog->image }}" alt="">
@@ -36,7 +34,6 @@
 
   <button class="blog__btn" onclick="showBlocks()" id="btn-more">Показать ещё</button>
 </section>
-
 
 <script>
 function showBlocks() {
