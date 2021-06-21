@@ -4447,7 +4447,8 @@ font-size: 18px !important;
     .header__button {
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex
+        display: flex;
+        width: 60% !important;
     }
     .system__wrapper-item {
         width: 270px;
